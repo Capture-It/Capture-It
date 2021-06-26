@@ -1,0 +1,10 @@
+nav a{
+    color:#fff;
+    text-decoration: none;
+    padding-left: 10%;
+
+  }
+  
+ a:hover{
+    color:darkgrey;
+  }
