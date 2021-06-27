@@ -52,7 +52,6 @@ export class MyPhoto extends Component {
       this.setState({
         userPhoto: userPhoto,
       });
-      console.log(this.state.userPhoto);
     });
   };
 //this function to return the data that user input in the form and store it in the database
@@ -105,10 +104,10 @@ export class MyPhoto extends Component {
     return (
       <div>
         <Addphoto getInfo={this.addphoto} />
-        {isAuthenticated&&<h2>Welcome {user.name}</h2> }
+        {isAuthenticated&&<h2>Welcome {user.nickname}</h2> }
         {/* <img src={user.picture} alt='t'/> */}
-        <CardPhoto photo={this.state.data} deletePhoto={this.deletePhoto} />
         <Carduserphoto userphoto={this.state.userPhoto} deletePhoto={this.deleteUserPhoto}/>
+        <CardPhoto photo={this.state.data} deletePhoto={this.deletePhoto} />
       </div>
     );
   }

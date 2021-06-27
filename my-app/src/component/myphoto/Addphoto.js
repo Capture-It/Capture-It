@@ -14,28 +14,6 @@ export class Addphoto extends Component {
             show:!this.state.show,
         })
     }
-    // getdata=()=>{
-    //     // e.preventDefault();
-    //     // let object = {
-    //     //     title: e.target.title.value,
-    //     //     description: e.target.des.value,
-    //     //     imgurl: e.target.imgurl.value,
-    //     //   };
-    //     //   console.log(object);
-    //     //   this.props.getInfo(object);
-    //     console.log('tesssssssssssst');
-    // }
-    getdata=()=>{
-       
-        console.log('tesssssssssssst');
-        // let object = {
-        //     name: event.target.book.value,
-        //     description: event.target.des.value,
-        //     status: event.target.Status.value,
-        //   };
-        // //   console.log(object);
-        //   this.props.modifyBook(object);
-    }
     render() {
         return (
 
@@ -52,18 +30,18 @@ export class Addphoto extends Component {
           <Form onSubmit={this.props.getInfo}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Photo Title</Form.Label>
-                <Form.Control type="text" placeholder="Enter Book Name" name="title" required />
+                <Form.Control type="text" placeholder="Enter Photo Title" name="title"  />
                 <Form.Text className="text-muted">
                   Pleas add your Photo.
                 </Form.Text>
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Description </Form.Label>
-                <Form.Control type="text" placeholder="Description" name="des" required />
+                <Form.Control type="text" placeholder="Description" name="des"  />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Link For Photo </Form.Label>
-                <Form.Control type="text" placeholder="Photo Link" name="imgurl" required />
+                <Form.Control type="text" placeholder="Photo Link" name="imgurl"  />
               </Form.Group>
               <Button variant="primary" type="submit" onClick={this.closemodal}>
                 Submit
