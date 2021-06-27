@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Button ,Accordion} from "react-bootstrap";
+import { Card, Button, Accordion } from "react-bootstrap";
 import CardColumns from 'react-bootstrap/CardColumns';
 import './CardData.css'
 
@@ -8,13 +8,13 @@ export class CardData extends Component {
     return (
       <div>
         <CardColumns>
-        {this.props.data.map((item,idx)=>{
-          return(
-        <Card style={{ width: "18rem" }} key={idx}>
-          <Card.Img variant="top" src={item.imagel}   />
-          <Card.Body>
-            <Card.Title>{item.title}</Card.Title>
-            <Accordion defaultActiveKey="0">
+          {this.props.data.map((item, idx) => {
+            return (
+              <Card style={{ width: "18rem" }} key={idx}>
+                <Card.Img variant="top" src={item.imagel} />
+                <Card.Body>
+                  <Card.Title>{item.title}</Card.Title>
+                  <Accordion defaultActiveKey="0">
                     <Accordion.Toggle as={Card.Header} eventKey="1">
                       Picture Description <br /> <br />
                       <small className="text-muted">Click for Description</small>
@@ -24,12 +24,12 @@ export class CardData extends Component {
                     </Accordion.Collapse>
                   </Accordion>
 
-            <Button variant="primary" onClick={()=>this.props.test(item.title,item.description,item.imagel)}>Add To My Photo</Button>
-          </Card.Body>
-        </Card>
+                  <Button variant="primary" onClick={() => this.props.test(item.title, item.description, item.imagel)}>Add To My Photo</Button>
+                </Card.Body>
+              </Card>
 
-          )
-        })}
+            )
+          })}
         </CardColumns>
       </div>
     );

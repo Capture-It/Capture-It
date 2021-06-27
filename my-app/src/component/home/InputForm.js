@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Button } from 'react-bootstrap'
-
+import "./InputForm.css"
 export class InputForm extends Component {
   render() {
     return (
@@ -8,9 +8,9 @@ export class InputForm extends Component {
         <Form onSubmit={this.props.getPhoto}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Picture Name</Form.Label>
-            <Form.Control type="text" placeholder="Enter Picture Name" name="photo" />
+            <Form.Control className="mb-4" type="text" placeholder="Enter Picture Name" name="photo" />
           </Form.Group>
-          <Button variant="primary" type="submit">Search</Button>
+          <Button className="mb-5" variant="primary" type="submit">Search</Button>
         </Form>
 
       </div>
