@@ -85,6 +85,7 @@ addUserToDB=async ()=>{
   };
   
   sendPhoto = async (title, des, imgUrl) => {
+    if(this.props.auth0.isAuthenticated){
     let email=this.props.auth0.user.email;
     
     await this.setState({
@@ -95,7 +96,10 @@ addUserToDB=async ()=>{
     axios.post(url, this.state.picData).then((result) => {
       console.log('done');
       
-    });
+    });}
+    else{
+alert ('you should login to use this feature')  
+}
 
   
     
