@@ -24,7 +24,7 @@ export class CardData extends Component {
                     </Accordion.Collapse>
                   </Accordion>
 
-            <Button variant="primary" onClick={()=>this.props.test(item.title,item.description,item.imagel)}>Add To My Photo</Button>
+            <Button variant="primary" onClick={()=>this.props.sendphoto(item.title,item.description,item.imagel)}>Add To My Photo</Button>
           </Card.Body>
         </Card>
 

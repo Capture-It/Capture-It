@@ -111,14 +111,12 @@ alert ('you should login to use this feature')
   };
 
   render() {
-    const { isAuthenticated, user } = this.props.auth0;
-
     return (
       <div>
         {/* {isAuthenticated && this.state.flag && this.addUserToDB()} */}
 
         <InputForm getPhoto={this.searchPhoto} />
-        <CardData data={this.state.photoData} test={this.sendPhoto} />
+        <CardData data={this.state.photoData} sendphoto={this.sendPhoto} />
       </div>
     );
   }
