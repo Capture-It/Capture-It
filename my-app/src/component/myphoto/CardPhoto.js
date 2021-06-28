@@ -8,6 +8,7 @@ export class CardPhoto extends Component {
       <div>
         <CardColumns>
           {this.props.photo.map((item,idx) => {
+            
             return (
               <Card style={{ width: "18rem" }} key={idx}>
                 <Card.Img variant="top" src={item.url} />

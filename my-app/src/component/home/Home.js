@@ -112,8 +112,6 @@ export class Home extends Component {
   };
 
   render() {
-    const { isAuthenticated, user } = this.props.auth0;
-
     return (
       <div>
         <div className='hero-container'>
