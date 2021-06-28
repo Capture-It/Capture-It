@@ -42,6 +42,9 @@ export class MyPhoto extends Component {
   //this function to render the image from the database that the user choose
   componentDidMount = async () => {
     console.log('heeer');
+    // console.log(this.props.auth0.user);
+    // this.props.auth0.user.picture='https://tse4.mm.bing.net/th?id=OIP.3PLCiUSmRbFhJtkdmY23_AHaEK&pid=Api&P=0&w=283&h=160'
+    // console.log(this.props.auth0.user);
     let email = this.props.auth0.user.email;
     let url = `http://localhost:3010/getphoto?email=${email}`;
     axios.get(url).then((photoResult) => {
@@ -58,7 +61,6 @@ export class MyPhoto extends Component {
       this.setState({
         userPhoto: userPhoto,
       });
-      console.log(this.state.userPhoto);
     });
   };
 //this function to return the data that user input in the form and store it in the database
@@ -157,7 +159,7 @@ export class MyPhoto extends Component {
     return (
       <div>
         <Addphoto getInfo={this.addphoto} />
-        {isAuthenticated&&<h2>Welcome {user.name}</h2> }
+        {isAuthenticated&&<h2>Welcome {user.nickname}</h2> }
         {/* <img src={user.picture} alt='t'/> */}
         <CardPhoto photo={this.state.data} deletePhoto={this.deletePhoto} />
         <Carduserphoto
@@ -172,6 +174,7 @@ export class MyPhoto extends Component {
          photoName={this.state.photoName}
          description={this.state.description}
          />
+        <CardPhoto photo={this.state.data} deletePhoto={this.deletePhoto} />
       </div>
     );
   }

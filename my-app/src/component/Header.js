@@ -21,7 +21,7 @@ export class Header extends Component {
             Home
           </Link>
          { isAuthenticated&& <Link to="/myphotos">My Photos</Link>}
-          <Link to="/Environment">Environment</Link>
+          <Link to="/Community">Community</Link>
           <Link to="/AboutUs">About Us</Link>
          
    
