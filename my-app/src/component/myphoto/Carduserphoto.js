@@ -6,6 +6,7 @@ import axios from 'axios';
 export class Carduserphoto extends Component {
    sendPublished=(item)=>{
 
+    //  console.log(item._id);
     const publishData={
       email:this.props.auth0.user.email,
       nickName:this.props.auth0.user.nickname,
@@ -13,7 +14,6 @@ export class Carduserphoto extends Component {
       description:item.description,
       url:item.url,
     }
-    console.log(publishData);
     console.log(this.props.auth0.user);
     let url=`http://localhost:3010/addPublishedDataToDB?`;
     axios.post(url,publishData).then((result)=>{
@@ -44,7 +44,7 @@ export class Carduserphoto extends Component {
                     </Accordion.Collapse>
                   </Accordion>
                 </Card.Body>
-                <Button onClick={()=>this.props.deletePhoto(idx)}>Delete</Button>
+                <Button onClick={()=>this.props.deletePhoto(idx,item._id)}>Delete</Button>
                 <Button onClick={()=>this.sendPublished(item)}>Publish</Button>
               </Card>
             );
