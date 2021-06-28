@@ -52,30 +52,28 @@ export class MyPhoto extends Component {
   }
 
 
-  deleteUserPhoto = async (index,id) => {
+  deleteUserPhoto = async (index,url) => {
     console.log(
       "🚀 ~ file: MyPhoto.js ~ line 25 ~ MyPhoto ~ deletePhoto ~ index",
       index
     );
 
     let user = this.props.auth0.user.email;
-    // const userPhotos = await axios.delete(
-    //   `http://localhost:3010/deleteUserphoto/${index}`,
-    //   { params: { email: user } }
-    // );
-
-    // this.setState({
-    //   userPhoto: userPhotos.data,
-    // });
+    const userPhotos = await axios.delete(
+      `http://localhost:3010/deleteUserphoto/${index}`,
+      { params: { email: user } }
+    );
+    this.setState({
+      userPhoto: userPhotos.data,
+    });
+    this.componentDidMount();
+    console.log(url);
     const userPublishedPhotos = await axios.delete(
-      `http://localhost:3010/deletePublishedphoto/${id}`,
+      `http://localhost:3010/deletePublishedphoto/${url}`,
       { params: { email: user } }
       );
       // http://localhost:3010/deletePublishedphoto/
-      this.setState({
-        userPhoto: userPublishedPhotos.data,
-      });
-      this.componentDidMount();
+      
 
 
 
