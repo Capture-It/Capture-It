@@ -1,7 +1,7 @@
 # Capture-It
 
 Omar D'yab “team leader”
-teammembers: 
+ teammembers: 
 Nura tabanjeh 
 Aya abu dager
 Nooraldeen khalaf
