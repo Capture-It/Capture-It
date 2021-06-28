@@ -16,6 +16,7 @@ export class CardPublishedData extends Component {
     let url = "http://localhost:3010/getPublishedDataDB";
     axios.get(url).then((result) => {
       let resultPublished = result.data;
+
       this.setState({
         publishedData: resultPublished,
       });
@@ -23,10 +24,7 @@ export class CardPublishedData extends Component {
   };
 
   addcomment = (e, item, value) => {
-    console.log(
-      "🚀 ~ file: CardPublishedData.js ~ line 25 ~ CardPublishedData ~ value",
-      value
-    );
+  
     e.preventDefault();
     const object = {
       email: item.email,
@@ -37,15 +35,20 @@ export class CardPublishedData extends Component {
     };
     let url = "http://localhost:3010/addCommentToDB";
     axios.post(url, object).then((result) => {
-      console.log("edit comment");
+      // console.log(result.data);
+      // this.setState({
+      //   publishedData: result.data,
+      // });
+      // console.log(this.state.publishedData);
     });
 
-    this.componentDidMount();
+    // this.componentDidMount();
   };
 
   render() {
     return (
       <div>
+        {console.log("reapete")}
         <CardColumns>
           {this.state.publishedData.map((item, idx) => {
             return item.userPublishedData.map((value, idx) => {

@@ -4,12 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './component/Footer';
 import { withAuth0 } from '@auth0/auth0-react';
 import Home from './component/home/Home';
-import LogoutButton from './component/LogoutButton';
 import MyPhoto from './component/myphoto/MyPhoto';
-import LoginButton from './component/Loginbutton';
-import Logoutbtn from './component/Logoutbtn';
-
-
+import Myfavourite from './component/myFav/Myfavourite';
 import {
   BrowserRouter as Router,
   Switch,
@@ -24,7 +20,7 @@ export class App extends Component {
 
   
   render() {
-    const {isAuthenticated,user }=this.props.auth0;
+    const {isAuthenticated }=this.props.auth0;
 
     return (
       <div>
@@ -46,6 +42,12 @@ export class App extends Component {
             </Route>
             <Route  path="/Community">
             <Community />
+              
+
+            </Route>
+            
+            <Route  path="/myfavourite">
+           <Myfavourite />
               
 
             </Route>
