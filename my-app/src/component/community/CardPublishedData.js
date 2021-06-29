@@ -15,30 +15,34 @@ export class CardPublishedData extends Component {
   componentDidMount = () => {
     let url = "http://localhost:3010/getPublishedDataDB";
     axios.get(url).then((result) => {
+      console.log('the first object ',result.data);
       let resultPublished = result.data;
-
       this.setState({
         publishedData: resultPublished,
       });
     });
+    console.log('data befor the comment', this.state.publishedData);
   };
+  
 
   addcomment = (e, item, value) => {
-  
+  console.log('comment is added');
     e.preventDefault();
     const object = {
-      email: item.email,
-      comment: e.target.comment.value,
-      name: this.props.auth0.user.nickname,
-      pic: this.props.auth0.user.picture,
-      id: value._id,
+      ownerEmail: item.email,
+      userComment: e.target.comment.value,
+      userName: this.props.auth0.user.nickname,
+      userPic: this.props.auth0.user.picture,
+      userPicId: value._id,
     };
     let url = "http://localhost:3010/addCommentToDB";
     axios.post(url, object).then((result) => {
-      // console.log(result.data);
-      // this.setState({
-      //   publishedData: result.data,
-      // });
+      let lastarr=[];
+      lastarr.push(result.data);
+      console.log(' user data after comment ',result.data);
+      this.setState({
+        publishedData: lastarr,
+      });
       // console.log(this.state.publishedData);
     });
 

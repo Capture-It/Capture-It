@@ -44,7 +44,7 @@ export class Carduserphoto extends Component {
                     </Accordion.Collapse>
                   </Accordion>
                 </Card.Body>
-                <Button onClick={()=>this.props.deletePhoto(idx,item._id)}>Delete</Button>
+                <Button onClick={()=>this.props.deletePhoto(idx,item.url,item._id)}>Delete</Button>
                 <Button onClick={()=>this.sendPublished(item)}>Publish</Button>
               </Card>
             );
