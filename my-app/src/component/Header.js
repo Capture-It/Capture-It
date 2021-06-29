@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Navbar} from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import Loginbutton from './Loginbutton';
@@ -10,29 +10,42 @@ import { withAuth0 } from '@auth0/auth0-react';
 
 export class Header extends Component {
   render() {
-      const {isAuthenticated }=this.props.auth0;
+    const { isAuthenticated } = this.props.auth0;
     return (
+
+
       <div>
-        <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="#home">photographer</Navbar.Brand>
-
+        <Navbar className="navbar" >
+          {/* <Navbar.Brand href="#home">photographer</Navbar.Brand> */}
+          {/* <img src='public/Logo_Captureit_bw.png' style={{}} /> */}
           {/* <Nav.Link href="/">Home</Nav.Link> */}
-          <Link className="title" to="/">
-            Home
-          </Link>
-         { isAuthenticated&& <Link to="/myphotos">My Photos</Link>}
-         { isAuthenticated&& <Link to="/myfavourite">My Favourite</Link>}
-          <Link to="/Community">Community</Link>
-          <Link to="/AboutUs">About Us</Link>
-         
-   
-       {isAuthenticated ? <Logoutbtn />:<Loginbutton />}
-       {/* <Loginbutton />
-       <Logoutbtn /> */}
-     
-       
 
-       
+          <div className='navbar-container' >
+            <p className='navbar-logo'>
+              CaptureIt
+
+            </p>
+            <div className='nav-links'>
+
+              <Link style={{ textDecoration: "none", color: '#fff' }} to="/">
+                Home
+              </Link>
+
+
+              {isAuthenticated && <Link style={{ textDecoration: "none", color: '#fff' }} to="/myphotos">My Photos</Link>}
+              <Link style={{ textDecoration: "none", color: '#fff' }} to="/Environment">Environment</Link>
+              <Link style={{ textDecoration: "none", color: '#fff' }} to="/AboutUs">About Us</Link>
+
+
+            </div>
+            {isAuthenticated ? <Logoutbtn /> : <Loginbutton />}
+          </div>
+         
+
+
+
+
+
         </Navbar>
       </div>
     );

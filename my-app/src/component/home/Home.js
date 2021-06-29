@@ -5,46 +5,46 @@ import CardData from "./CardData";
 import { withAuth0 } from '@auth0/auth0-react';
 
 export class Home extends Component {
-  
-  
+
+
   constructor(props) {
     super(props);
     this.state = {
       name: "",
       photoData: [],
       picData: {},
-      flag:true
+      flag: true
     };
   }
 
-   getRandomIntInclusive=()=> {
-    let min =0
+  getRandomIntInclusive = () => {
+    let min = 0
     let max = 8
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
-//http://localhost:3010/initdb?
-addUserToDB=async ()=>{
-  const email= this.props.auth0.user.email;
-  console.log(email);
-  let obj={email};
+  //http://localhost:3010/initdb?
+  addUserToDB = async () => {
+    const email = this.props.auth0.user.email;
+    console.log(email);
+    let obj = { email };
 
-  let url = `http://localhost:3010/initdb`;
-    axios.post(url,obj ).then((result) => {
+    let url = `http://localhost:3010/initdb`;
+    axios.post(url, obj).then((result) => {
       console.log('done');
       this.setState({
-        flag:false
+        flag: false
 
       })
     });
 
 
 
-}
-  componentDidMount= async () => {
+  }
+  componentDidMount = async () => {
 
-    let random=this.getRandomIntInclusive();
+    let random = this.getRandomIntInclusive();
     try {
-      let photoName = ['cat','car','person','movie','london','people','toys','tree','new york'];
+      let photoName = ['cat', 'car', 'person', 'movie', 'london', 'people', 'toys', 'tree', 'new york'];
 
       console.log(photoName);
       let url = `http://localhost:3010/photo?photoName=${photoName[random]}`;
@@ -58,13 +58,13 @@ addUserToDB=async ()=>{
       console.log(e);
     }
 
-    if( this.props.auth0.isAuthenticated){
-        
-        this.addUserToDB();
+    if (this.props.auth0.isAuthenticated) {
+
+      this.addUserToDB();
     }
 
-    
-    
+
+
   };
 
   searchPhoto = async (event) => {
@@ -83,27 +83,28 @@ addUserToDB=async ()=>{
       console.log(e);
     }
   };
-  
-  sendPhoto = async (title, des, imgUrl) => {
-    if(this.props.auth0.isAuthenticated){
-    let email=this.props.auth0.user.email;
-    
-    await this.setState({
-      picData: { title, des, imgUrl,email }
-    });
- 
-    let url = `http://localhost:3010/addPhoto`;
-    axios.post(url, this.state.picData).then((result) => {
-      console.log('done');
-      
-    });}
-    else{
-alert ('you should login to use this feature')  
-}
 
-  
-    
-    
+  sendPhoto = async (title, des, imgUrl) => {
+    if (this.props.auth0.isAuthenticated) {
+      let email = this.props.auth0.user.email;
+
+      await this.setState({
+        picData: { title, des, imgUrl, email }
+      });
+
+      let url = `http://localhost:3010/addPhoto`;
+      axios.post(url, this.state.picData).then((result) => {
+        console.log('done');
+
+      });
+    }
+    else {
+      alert('you should login to use this feature')
+    }
+
+
+
+
 
 
 
@@ -113,10 +114,17 @@ alert ('you should login to use this feature')
   render() {
     return (
       <div>
-        {/* {isAuthenticated && this.state.flag && this.addUserToDB()} */}
+        <div className='hero-container'>
+          <img style={{ width: "100%", hight: "50px", zIndex: "-1" }} src='http://akphotographer.in/gall/banner-5.jpg' />
 
-        <InputForm getPhoto={this.searchPhoto} />
-        <CardData data={this.state.photoData} sendphoto={this.sendPhoto} />
+
+        </div>
+        <div>
+          {/* {isAuthenticated && this.state.flag && this.addUserToDB()} */}
+
+          <InputForm getPhoto={this.searchPhoto} />
+          <CardData data={this.state.photoData} test={this.sendPhoto} />
+        </div>
       </div>
     );
   }
