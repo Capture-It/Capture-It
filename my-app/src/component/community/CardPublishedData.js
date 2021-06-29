@@ -16,6 +16,7 @@ export class CardPublishedData extends Component {
     let url = "http://localhost:3010/getPublishedDataDB";
     axios.get(url).then((result) => {
       let resultPublished = result.data;
+      console.log(result.data);
 
       this.setState({
         publishedData: resultPublished,
@@ -23,7 +24,10 @@ export class CardPublishedData extends Component {
     });
   };
 
-  addcomment = (e, item, value) => {
+  test=(result)=>{
+
+  }
+  addcomment = async (e, item, value) => {
   
     e.preventDefault();
     const object = {
@@ -34,17 +38,16 @@ export class CardPublishedData extends Component {
       id: value._id,
     };
     let url = "http://localhost:3010/addCommentToDB";
-    axios.post(url, object).then((result) => {
-      // console.log(result.data);
-      // this.setState({
+      axios.post(url, object).then((result) => {
+      console.log(result.data);
+      // this.setState ({
       //   publishedData: result.data,
       // });
       // console.log(this.state.publishedData);
     });
 
-    // this.componentDidMount();
+    this.componentDidMount();
   };
-
   render() {
     return (
       <div>
@@ -102,7 +105,7 @@ export class CardPublishedData extends Component {
                       />
                     </Form.Group>
                     <Button variant="primary" type="submit">
-                      Submit
+                      Comment
                     </Button>
                   </Form>
                 </Card>
@@ -117,17 +120,3 @@ export class CardPublishedData extends Component {
 
 export default withAuth0(CardPublishedData);
 
-//     <Card.Body> {value.description} </Card.Body>
-
-{/* <Card.Body>
-  {" "}
-  <Card.Body key={i}>
-    {" "}
-    <Image src={element.url} className="userimg" roundedCircle />
-    {` ${element.commenter}`}
-    <br />
-    {element.text}{" "}
-  </Card.Body>{" "}
-</Card.Body>;
-     </Accordion.Collapse>
-     </Accordion> */}
