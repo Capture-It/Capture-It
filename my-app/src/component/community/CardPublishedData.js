@@ -45,6 +45,23 @@ export class CardPublishedData extends Component {
       });
     });
   };
+
+  addlike=(e, item, value)=>{
+    e.preventDefault();
+    let object ={
+      email:item.email,
+      id: value._id,
+    }
+
+    let url = "http://localhost:3010/addlike";
+    axios.post(url, object).then((result) => {
+    // console.log(result.data);
+    this.setState ({
+      publishedData: result.data,
+    });
+  });
+
+  }
   render() {
     return (
       <div>
@@ -69,6 +86,8 @@ export class CardPublishedData extends Component {
                     <Card.Title>By:{value.name}</Card.Title>
                     <Card.Title>{value.title}</Card.Title>
                     <Card.Body> {value.description} </Card.Body>
+                    <Card.Body> {value.like} </Card.Body>
+
 
 
                                         
@@ -103,6 +122,9 @@ export class CardPublishedData extends Component {
                     </Form.Group>
                     <Button variant="primary" type="submit">
                       Comment
+                    </Button>
+                    <Button variant="primary" type="submit" onClick={(e) => this.addlike(e, item, value)}>
+                      Like
                     </Button>
                   </Form>
                 </Card>
