@@ -50,28 +50,27 @@ export class CardPublishedData extends Component {
           {this.state.publishedData.map((item, idx) => {
             return item.userPublishedData.map((value, idx) => {
               return (
-                <Card style={{ width: "18rem" }} key={idx}>
-                  <Card.Img variant="top" src={value.url} />
+                < Card style={{ width: "23rem" }} className='pubCard' key={idx}>
+                  <Card.Img variant="top" className='pubImg' src='https://upload.wikimedia.org/wikipedia/commons/1/16/Appearance_of_sky_for_weather_forecast%2C_Dhaka%2C_Bangladesh.JPG' />
 
+
+                    <Card.Title className='by'> 👥 Nooraldeen khalaf</Card.Title>
+                    <Card.Title className='by'>◾{value.title}</Card.Title>
+                    <Card.Body className='by'> ◾{value.description} </Card.Body>
 
                     <Accordion defaultActiveKey="0">
-                    <Accordion.Toggle as={Card.Header} eventKey="1">
-                        View Comment <br /> <br />
-                        <small className="text-muted">
-                        Click For Comment
-                        </small>
+                    <Accordion.Toggle className='view' as={Card.Header} eventKey="1">
+                    💬 View Comment <br /> <br />
+      
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="1">
                   <Card.Body>
-                    <Card.Title>By:{value.name}</Card.Title>
-                    <Card.Title>{value.title}</Card.Title>
-                    <Card.Body> {value.description} </Card.Body>
 
 
                                         
                     {value.comment.map((element, i) => {
                       return (
-                        <Card.Body key={i}>
+                        <Card.Body  key={i} className='commCard'>
                           {" "}
                           <Image
                             src={element.url}
@@ -80,7 +79,7 @@ export class CardPublishedData extends Component {
                           />
                           {` ${element.commenter}`}
                           <br />
-                          {element.text}{" "}
+                         <p className='commText'>{element.text}{" "}</p> 
                         </Card.Body>
                       );
                     })}
@@ -90,17 +89,18 @@ export class CardPublishedData extends Component {
                       </Accordion>
 
                   <Form onSubmit={(e) => this.addcomment(e, item, value)}>
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                      <Form.Control
+                    <Form.Group className="mb-3" controlId="formBasicPassword" >
+                      <Form.Control 
                         as="textarea"
                         rows={3}
                         placeholder="Comment"
                         name="comment"
                       />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
-                      Submit
-                    </Button>
+                    <section class="container">
+                <button class="btttn" variant="primary" data-hover="Click!"><div>comment</div></button>
+              </section>
+                
                   </Form>
                 </Card>
               );

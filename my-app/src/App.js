@@ -16,50 +16,55 @@ import {
   Route
 } from "react-router-dom";
 import Community from './component/community/Community';
+import AboutUS from './component/AboutUs';
 
 
 
 export class App extends Component {
 
 
-  
+
   render() {
-    const {isAuthenticated,user }=this.props.auth0;
+    const { isAuthenticated, user } = this.props.auth0;
 
     return (
       <div>
-       
-        
-        
+
+
+
         <Router>
-        <Header />
+          <Header />
           <Switch>
             <Route exact path="/">
               <Home />
 
             </Route>
 
-            <Route  path="/myphotos">
-              {isAuthenticated ? <MyPhoto />:''}
-              
+            <Route path="/myphotos">
+              {isAuthenticated ? <MyPhoto /> : ''}
+
 
             </Route>
-            <Route  path="/Community">
-            <Community />
-              
+            <Route path="/Community">
+              <Community />
+
+
+            </Route>
+            <Route path="/AboutUs">
+              <AboutUS />
+
 
             </Route>
 
-
-        <br />
-        <br />
-        <br />
+            <br />
+            <br />
+            <br />
 
           </Switch>
         </Router>
         <Footer />
 
-        
+
       </div>
     )
   }
