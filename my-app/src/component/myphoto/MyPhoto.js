@@ -52,7 +52,7 @@ export class MyPhoto extends Component {
   }
 
 
-  deleteUserPhoto = async (index,url) => {
+  deleteUserPhoto = async (index,url,id) => {
     console.log(
       "🚀 ~ file: MyPhoto.js ~ line 25 ~ MyPhoto ~ deletePhoto ~ index",
       index
@@ -69,8 +69,8 @@ export class MyPhoto extends Component {
     this.componentDidMount();
     console.log(url);
     const userPublishedPhotos = await axios.delete(
-      `http://localhost:3010/deletePublishedphoto/${url}`,
-      { params: { email: user } }
+      `http://localhost:3010/deletePublishedphoto/${id}`,
+      { params: { email: user,url:url } }
       );
       // http://localhost:3010/deletePublishedphoto/
       
