@@ -18,8 +18,9 @@ export class Addphoto extends Component {
         return (
 
             <div>
-                 <Button variant="primary" size="lg" onClick={this.closemodal} className="button1" active>Add Picture</Button>
-
+              <div style={{position:"absolute", marginTop:"27%" , marginLeft:"48%"}}className="btnAdd">
+                 <button variant="primary" size="lg" onClick={this.closemodal} className="button1" active>Add Picture</button>
+                 </div>
                  <Modal show={this.state.show} onHide={this.closemodal}>
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">

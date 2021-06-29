@@ -1,0 +1,92 @@
+/* img.card-img-top{
+    height: 400px;
+    width: 100%;
+} */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,800);
+
+.container:before,
+.container:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font: 300 1em/1.5 "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  text-decoration: none;
+  color: #111;
+}
+
+.img-container {
+  margin-left: 10%;
+  border-radius: 5px;
+  /* text-align: center; */
+  z-index: -10;
+}
+
+/* html, body{background: rgb(236, 240, 241);} */
+
+section.container {
+  min-width: 500px;
+  margin-left: 10% auto;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  text-align: center;
+}
+
+.text-container {
+  margin-left: 70px;
+  margin-top: -50px;
+  background-color: black;
+  opacity: 70%;
+  color: blanchedalmond;
+  width: 30%;
+  text-align: center;
+  border-radius: 55%;
+  height: 10%;
+}
+.img-container:hover {
+  z-index: -10;
+  -webkit-transform: translateX(-3px);
+  transform: translateX(-10px);
+}
+
+.overlay {
+  margin-bottom: 3%;
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+  color: #fff;
+  text-shadow: 1px 1px 1px #333;
+  /* background-image: linear-gradient(135deg, #9f05ff69 10%, #fd5e086b 100%); */
+  background-image: url("https://images.unsplash.com/photo-1605879192407-d2879dee4fe4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80");
+  text-align: center;
+  width: 100%;
+  height: 600px;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0 0 85% 85% / 30%;
+}
+
+h2 {
+  font: 300 1em/1.5 "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 80px;
+  margin-bottom: 30px;
+  /* background-color: #333;
+  opacity: 10%; */
+  color: whitesmoke;
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+  margin-bottom: 30px;
+}
+
+.btncontainer {
+  /* display: flex; */
+  position: absolute;
+  margin-left: 200px;
+  /* background-color: transparent; */
+  /* font: 300 1em/1.5 "Open Sans", "Helvetica Neue", Arial, sans-serif; */
+  /* width: 100%; */
+  margin-top: 3%;
+}

@@ -3,6 +3,7 @@ import { Card, Button, Accordion } from "react-bootstrap";
 import CardColumns from "react-bootstrap/CardColumns";
 import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
+import Carduserphotos from "./Carduserphoto.css"
 export class Carduserphoto extends Component {
    sendPublished=(item)=>{
 
@@ -27,26 +28,24 @@ export class Carduserphoto extends Component {
                  <CardColumns>
           {this.props.userphoto.map((item,idx) => {
             return (
-              <Card style={{ width: "18rem" }} key={idx}>
-                <Card.Img variant="top" src={item.url} />
+              <>
+              
+              <div class="img-container">
+                <img style={{ height: "493.067px", width: "500px", borderRadius: "5px", zIndex: "-1" }} src={item.url}></img>
+              </div>
+              <div class="text-container">
+                <h4>{item.title}</h4>
 
-                <Card.Body>
-                  <Card.Title>{item.title}</Card.Title>
-                  <Accordion defaultActiveKey="0">
-                    <Accordion.Toggle as={Card.Header} eventKey="1">
-                      Picture Description <br /> <br />
-                      <small className="text-muted">
-                        Click for Description
-                      </small>
-                    </Accordion.Toggle>
-                    <Accordion.Collapse eventKey="1">
-                      <Card.Body> {item.description} </Card.Body>
-                    </Accordion.Collapse>
-                  </Accordion>
-                </Card.Body>
-                <Button onClick={()=>this.props.deletePhoto(idx,item.url)}>Delete</Button>
-                <Button onClick={()=>this.sendPublished(item)}>Publish</Button>
-              </Card>
+              </div>
+
+
+              <section class="btncontainer">
+
+                <button  variant="primary" onClick={()=>this.props.deletePhoto(idx,item.url)} >Delete</button>
+                <button  variant="primary" onClick={()=>this.sendPublished(item)} >Publish</button>
+                <button  variant="primary" onClick={()=>this.sendPublished(item)} >Update</button>
+              </section>
+            </>
             );
           })}
         </CardColumns>
