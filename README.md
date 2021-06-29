@@ -15,10 +15,9 @@ I am passionate about learning new technologies and skills, and I hope to be a g
 
 5. Abdallah Elian:
 
-## Name of Project: Capture-It
-# Summary of the idea.
-Capture-It A platform that offers photographers the opportunity to share their beautiful photos among professional photographers.  
--A website for photographers, offering a platform for sharing and interacting among photographers.
+# Name of Project: Capture-It
+## Summary of the idea.
+Capture-It is a website for photographers, offering a platform for sharing and interacting among photographers.
 -storing your photos
 -library for photos
 
@@ -33,11 +32,11 @@ Capture-It A platform that offers photographers the opportunity to share their b
 # Group Project: Begin Wireframes & Software Requirements
 
 ## Five stories: 
-As a user, I want to select one or more of your random high-resolution images.
-As a user, I want to add my own photos to your website.
-As a user, I want to see other users' photos with information (eg. title, description) and interact with them.
-As a user, I want to decide whether to share my photos or not with other users. 
-As a user, I want to update or delete my photos. 
+1. As a user, I want to select one or more of your random high-resolution images.
+2. As a user, I want to add my own photos to your website.
+3. As a user, I want to see other users' photos with information (eg. title, description) and interact with them.
+4. As a user, I want to decide whether to share my photos or not with other users. 
+5. As a user, I want to update or delete my photos. 
 
 ## What is the vision of this product?
 
@@ -65,7 +64,8 @@ Stretch: upload photos from local.
 # Functional Requirements
 -Already mentioned. 
 
-the user should sign in to get access to our service using auth0, then by default, once created, a user data inside one collection in our database will be initiated.
+# Data Flow
+The user should sign in to get access to our service using auth0, then by default, once created, a user data inside one collection in our database will be initiated.
 the info of the user is shared with the database n order to add/delete/update records in our database.
 once access to the user photos is granted it can be shared publicly in which the other collection can render photos for different users with interaction methods.
 
