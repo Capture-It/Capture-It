@@ -6,11 +6,17 @@ export class CardPhoto extends Component {
   render() {
     return (
       <div>
+      <div class="overlay">
+              <h2>My Favouraite Photos</h2>
+              <p>Provided From CaptureIt</p>
+              </div>
+      
         <CardColumns>
           {this.props.photo.map((item,idx) => {
             
             return (
               <>
+              
               <div class="img-container">
                 <img style={{ height: "493.067px", width: "500px", borderRadius: "5px", zIndex: "-1" }} src={item.url}></img>
               </div>
