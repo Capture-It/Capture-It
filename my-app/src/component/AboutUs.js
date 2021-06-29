@@ -8,7 +8,12 @@ class AboutUS extends React.Component {
     render() {
         return (
             <>
-            <h1>Our Team</h1>
+            <h1>About US
+            </h1>
+            <p className='head'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
+                 standard dummy text ever since the 1500.</p>
+                 <hr></hr>
+                 <h1>Our Team</h1>
             <p className='head'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
                  standard dummy text ever since the 1500.</p>
 

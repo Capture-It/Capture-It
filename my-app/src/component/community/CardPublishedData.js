@@ -79,7 +79,8 @@ export class CardPublishedData extends Component {
                           />
                           {` ${element.commenter}`}
                           <br />
-                         <p className='commText'>{element.text}{" "}</p> 
+                         <p class='commText'>{element.text}{" "}</p> 
+                         <hr class='hrhr'></hr>
                         </Card.Body>
                       );
                     })}
