@@ -9,7 +9,12 @@ export class MyPhoto extends Component {
     super(props);
     this.state = {
       data: [],
-      userPhoto:[]
+      userPhoto:[],
+      showUpdate:false,
+      photoName:'',
+      description:'',
+      index:0,
+      imgurl:''
     };
   }
 
@@ -43,7 +48,10 @@ export class MyPhoto extends Component {
         userPhoto: userPhoto,
       });
       this.componentDidMount();
-    
+
+      this.setState({
+        imgurl:event.target.imgurl.value
+      })
       
     });
 
@@ -75,10 +83,52 @@ export class MyPhoto extends Component {
       // http://localhost:3010/deletePublishedphoto/
       
 
-
-
-
   };
+
+  handleCloseUpadate=()=>{
+    this.setState({
+      showUpdate:false
+    })
+  }
+
+  updatePhoto=(idx)=>{
+    this.setState({
+      index:idx,
+      showUpdate:true,
+      photoName:this.state.userPhoto[idx].title,
+      description:this.state.userPhoto[idx].description
+    })
+  }
+
+  updatePhotoHandler= async(event)=>{
+    event.preventDefault();
+    const index = this.state.index;
+    const userData ={
+      imgurl:this.state.imgurl,
+      photoName : event.target.photoName.value,
+      description:event.target.description.value,
+      email:this.props.auth0.user.email,
+    }
+    console.log(this.state.imgurl)
+    // console.log(index,userData)
+    const updatedData = await axios.put(`http://localhost:3010/updatePhoto/${index}`,userData)
+
+    this.setState({
+      userPhoto:updatedData.data
+    })
+  }
+
+  nameChange=(e)=>{
+    this.setState({
+      photoName:e.target.photoName,
+    })
+  }
+
+ descriptionChange=(e)=>{
+    this.setState({
+      description:e.target.description,
+    })
+  }
  
   render() {
     const {isAuthenticated,user }=this.props.auth0;
@@ -87,8 +137,18 @@ export class MyPhoto extends Component {
         <Addphoto getInfo={this.addphoto} />
         {isAuthenticated&&<h2>Welcome {user.nickname}</h2> }
         {/* <img src={user.picture} alt='t'/> */}
-        <Carduserphoto userphoto={this.state.userPhoto} deletePhoto={this.deleteUserPhoto}/>
-       
+        <Carduserphoto
+         userphoto={this.state.userPhoto} 
+         deletePhoto={this.deleteUserPhoto}
+         updatePhoto={this.updatePhoto}
+         showUpdate={this.state.showUpdate}
+         handleCloseUpadate={this.handleCloseUpadate}
+         updatePhotoHandler={this.updatePhotoHandler}
+         nameChange={this.nameChange}
+         descriptionChange={this.descriptionChange}
+         photoName={this.state.photoName}
+         description={this.state.description}
+         />
       </div>
     );
   }
