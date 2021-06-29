@@ -16,6 +16,7 @@ export class CardPublishedData extends Component {
     let url = "http://localhost:3010/getPublishedDataDB";
     axios.get(url).then((result) => {
       let resultPublished = result.data;
+      console.log(result.data);
 
       this.setState({
         publishedData: resultPublished,
@@ -23,7 +24,10 @@ export class CardPublishedData extends Component {
     });
   };
 
-  addcomment = (e, item, value) => {
+  test=(result)=>{
+
+  }
+  addcomment = async (e, item, value) => {
   
     e.preventDefault();
     const object = {
@@ -34,17 +38,13 @@ export class CardPublishedData extends Component {
       id: value._id,
     };
     let url = "http://localhost:3010/addCommentToDB";
-    axios.post(url, object).then((result) => {
-      // console.log(result.data);
-      // this.setState({
-      //   publishedData: result.data,
-      // });
-      // console.log(this.state.publishedData);
+      axios.post(url, object).then((result) => {
+      console.log(result.data);
+      this.setState ({
+        publishedData: result.data,
+      });
     });
-
-    // this.componentDidMount();
   };
-
   render() {
     return (
       <div>
@@ -53,28 +53,27 @@ export class CardPublishedData extends Component {
           {this.state.publishedData.map((item, idx) => {
             return item.userPublishedData.map((value, idx) => {
               return (
-                <Card style={{ width: "18rem" }} key={idx}>
-                  <Card.Img variant="top" src={value.url} />
+                < Card style={{ width: "23rem" }} className='pubCard' key={idx}>
+                  <Card.Img variant="top" className='pubImg' src={value.url} />
 
+
+                    <Card.Title className='by'> 👥 {value.name}</Card.Title>
+                    <Card.Title className='by'>◾{value.title}</Card.Title>
+        
 
                     <Accordion defaultActiveKey="0">
-                    <Accordion.Toggle as={Card.Header} eventKey="1">
-                        View Comment <br /> <br />
-                        <small className="text-muted">
-                        Click For Comment
-                        </small>
+                    <Accordion.Toggle className='view' as={Card.Header} eventKey="1">
+                    💬 View Comment <br /> <br />
+      
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="1">
                   <Card.Body>
-                    <Card.Title>By:{value.name}</Card.Title>
-                    <Card.Title>{value.title}</Card.Title>
-                    <Card.Body> {value.description} </Card.Body>
 
 
                                         
                     {value.comment.map((element, i) => {
                       return (
-                        <Card.Body key={i}>
+                        <Card.Body  key={i} className='commCard'>
                           {" "}
                           <Image
                             src={element.url}
@@ -83,7 +82,8 @@ export class CardPublishedData extends Component {
                           />
                           {` ${element.commenter}`}
                           <br />
-                          {element.text}{" "}
+                         <p class='commText'>{element.text}{" "}</p> 
+                         <hr class='hrhr'></hr>
                         </Card.Body>
                       );
                     })}
@@ -93,17 +93,18 @@ export class CardPublishedData extends Component {
                       </Accordion>
 
                   <Form onSubmit={(e) => this.addcomment(e, item, value)}>
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                      <Form.Control
+                    <Form.Group className="mb-3" controlId="formBasicPassword" >
+                      <Form.Control 
                         as="textarea"
                         rows={3}
                         placeholder="Comment"
                         name="comment"
                       />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
-                      Submit
-                    </Button>
+                    <section class="container">
+                <button class="btttn" type="submit" variant="primary" data-hover="Click!"><div>comment</div></button>
+              </section>
+                
                   </Form>
                 </Card>
               );
@@ -117,17 +118,3 @@ export class CardPublishedData extends Component {
 
 export default withAuth0(CardPublishedData);
 
-//     <Card.Body> {value.description} </Card.Body>
-
-{/* <Card.Body>
-  {" "}
-  <Card.Body key={i}>
-    {" "}
-    <Image src={element.url} className="userimg" roundedCircle />
-    {` ${element.commenter}`}
-    <br />
-    {element.text}{" "}
-  </Card.Body>{" "}
-</Card.Body>;
-     </Accordion.Collapse>
-     </Accordion> */}

@@ -14,6 +14,7 @@ import {
   Route
 } from "react-router-dom";
 import Community from './component/community/Community';
+import AboutUS from './component/AboutUs';
 
 
 
@@ -39,15 +40,20 @@ export class App extends Component {
 
             </Route>
 
-            <Route path="/myphotos">
-              {isAuthenticated ? <MyPhoto /> : ''}
 
-
+            <Route  path="/myphotos">
+              {isAuthenticated ? <MyPhoto />:''}
             </Route>
-            <Route path="/Community">
-              <Community />
 
 
+            <Route  path="/Community">
+            <Community />
+            </Route>
+
+
+            
+            <Route path="/AboutUs">
+              <AboutUS />
             </Route>
             
             <Route  path="/myfavourite">
