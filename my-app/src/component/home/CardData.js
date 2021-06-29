@@ -1,45 +1,41 @@
 import React, { Component } from "react";
-import { Card, Button ,Accordion} from "react-bootstrap";
+// import { Card, Button, Accordion } from "react-bootstrap";
 import CardColumns from 'react-bootstrap/CardColumns';
 import './CardData.css'
-
 export class CardData extends Component {
   render() {
     return (
-      <div>
-        <CardColumns>
-        {this.props.data.map((item,idx)=>{
-          return(
-        // <Card style={{ width: "18rem" }} key={idx}>
-        //   <Card.Img variant="top" src={item.imagel}   />
-        //   <Card.Body>
-        //     <Card.Title>{item.title}</Card.Title>
-        //     <Accordion defaultActiveKey="0">
-        //             <Accordion.Toggle as={Card.Header} eventKey="1">
-        //               Picture Description <br /> <br />
-        //               <small className="text-muted">Click for Description</small>
-        //             </Accordion.Toggle>
-        //             <Accordion.Collapse eventKey="1">
-        //               <Card.Body>     {item.description} </Card.Body>
-        //             </Accordion.Collapse>
-        //           </Accordion>
+      <CardColumns>
+        {this.props.data.map((item, idx) => {
+          return (
 
-        //   </Card.Body>
-        //     <Button variant="primary" onClick={()=>this.props.sendphoto(item.title,item.description,item.imagel)}>Add To My Photo</Button>
-        // </Card>
-        <img src={item.imagel} alt="jlk"/>
+            <>
+              <div class="img-container">
+                <img style={{ height: "493.067px", width: "500px", borderRadius: "5px", zIndex: "-1" }} src={item.imagel}></img>
+              </div>
+              <div class="text-container">
+                <h4>{item.title}</h4>
 
+              </div>
+
+
+              <section class="container">
+
+                <button class="btttn" variant="primary" onClick={() => this.props.sendphoto(item.title, item.description, item.imagel)} data-hover="Save!"><div>Add To My Photo</div></button>
+
+              </section>
+            </>
           )
         })}
-        </CardColumns>
-      </div>
+      </CardColumns>
+
     );
   }
 }
-
 export default CardData;
 
 
-            // <Card.Text>
-            //  {item.description}
-            // </Card.Text>
+
+
+
+
