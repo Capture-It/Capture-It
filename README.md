@@ -10,7 +10,8 @@ Omar D'yab : 29, and still believe I am young, An engineer, I have a Bachelor’
 
 3. Nooraldeen Khalaf: 24 years old, have a bachelor's degree in civil engineering from  Hashemite University, and has a passion to be a professional in the tech field.
 
-4. Khaleel Ghanem :
+4. Khaleel Ghanem :27 years old, hold a bachelor's in Software Engineering from Zarqa university. 
+I am passionate about learning new technologies and skills, and I hope to be a great developer.
 
 5. Abdallah Elian:
 
