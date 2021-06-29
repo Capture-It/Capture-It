@@ -1,18 +1,23 @@
-
 # Capture-It
 
+# Team leader
+Omar D'yab : 29, and still believe I am young, An engineer, I have a Bachelor’s Communications Engineer,  I have a European master's degree in Computer science, into chess and basketball.
 
-Omar D'yab “team leader”
-# Teammembers: 
-1. Nura tabanjeh: 
-2. Aya abu dager
-3. Nooraldeen khalaf
-4. Khaleel Ghanem
-5. Abdallah elian
+# Teammembers : 
+1. Nura Tabanjeh: hold a bachelor's degree in Civil Engineering from BAU, a web development student at ASAC, Nura enjoys ensuring that things running smoothly and create operations strategies to keep everything perfect.
+
+2. Aya Abu Dager: 23 years old, have a bachelor’s degree in architectural engineering from Al al-Bayt University, decided to shift her career to be a full stack developer.
+
+3. Nooraldeen Khalaf: 24 years old, have a bachelor's degree in civil engineering from  Hashemite University, and has a passion to be a professional in the tech field.
+
+4. Khaleel Ghanem :
+
+5. Abdallah Elian:
 
 ## Name of Project: Capture-It
-# Summary of idea.
--A web site for photographers,offering a platform for sharing and interacting between photographers.
+# Summary of the idea.
+Capture-It A platform that offers photographers the opportunity to share their beautiful photos among professional photographers.  
+-A website for photographers, offering a platform for sharing and interacting among photographers.
 -storing your photos
 -library for photos
 
@@ -29,7 +34,7 @@ Omar D'yab “team leader”
 ## Five stories: 
 As a user, I want to select one or more of your random high-resolution images.
 As a user, I want to add my own photos to your website.
-As a user, I want to see other users' photos with information (eg. title, description) and interact with it.
+As a user, I want to see other users' photos with information (eg. title, description) and interact with them.
 As a user, I want to decide whether to share my photos or not with other users. 
 As a user, I want to update or delete my photos. 
 
@@ -39,7 +44,7 @@ As a user, I want to update or delete my photos.
 What pain point does this project solve?
 -Having an interactive platform for photographers.
 ## Why should we care about your product?
-1. its a very nice friendly platform that can be trendy. 
+1. It's a very nice friendly platform that can be trendy. 
 
 2. The app gives the user the opportunity to select one or more random high-resolution images.
 3. The app gives the user the opportunity to add his/her own photos to the website.
@@ -66,5 +71,5 @@ once access to the user photos is granted it can be shared publicly in which the
 
 ## Non-Functional Requirements (301 & 401 only):
 
-1. Usability=> Having two collections for our database makes it easier to work on different components and retriving data.
+1. Usability=> Having two collections for our database makes it easier to work on different components and retrieving data.
 2. Testability=> It can be run with relatively little preparatory effort, It can be tested with relatively few lines of code and It can be executed quickly.
