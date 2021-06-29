@@ -1,10 +1,39 @@
-import React, { Component } from 'react'
+import React, { Component,useState } from 'react'
 import { Card, Button, Accordion } from "react-bootstrap";
 import CardColumns from "react-bootstrap/CardColumns";
 import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 export class Carduserphoto extends Component {
+
+  
+  constructor(props){
+    super(props);
+    this.state={
+      disable:false,
+      data:[]
+    }
+  }
+ 
    sendPublished=(item)=>{
+    this.setState({
+      disable:true
+    })
+    let resultPublished;
+    let url1 = "http://localhost:3010/getPublishedDataDB";
+    axios.get(url1).then((result) => {
+      this.setState({
+        data:result.data
+      })
+      console.log(this.state.data);
+    });
+    
+    // resultPublished.forEach((item)=>{
+    //   item[0].forEach((element,idx)=>{
+    //     console.log(element);
+    //   })
+    // })
+
+
 
      console.log(item.url);
     const publishData={
@@ -19,6 +48,7 @@ export class Carduserphoto extends Component {
     axios.post(url,publishData).then((result)=>{
       console.log('inserted');
     })
+
 
    }
     render() {
@@ -45,7 +75,7 @@ export class Carduserphoto extends Component {
                   </Accordion>
                 </Card.Body>
                 <Button onClick={()=>this.props.deletePhoto(idx,item.url)}>Delete</Button>
-                <Button onClick={()=>this.sendPublished(item)}>Publish</Button>
+                <Button disabled={this.state.disable} onClick={()=>this.sendPublished(item)}>Publish</Button>
               </Card>
             );
           })}
