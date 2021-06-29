@@ -6,9 +6,7 @@ import { withAuth0 } from '@auth0/auth0-react';
 import Home from './component/home/Home';
 
 import MyPhoto from './component/myphoto/MyPhoto';
-
-
-
+import Myfavourite from './component/myFav/Myfavourite';
 
 import {
   BrowserRouter as Router,
@@ -24,7 +22,9 @@ export class App extends Component {
 
 
   render() {
-    const { isAuthenticated, user } = this.props.auth0;
+
+    const {isAuthenticated }=this.props.auth0;
+
 
     return (
       <div>
@@ -47,6 +47,12 @@ export class App extends Component {
             <Route path="/Community">
               <Community />
 
+
+            </Route>
+            
+            <Route  path="/myfavourite">
+           <Myfavourite />
+              
 
             </Route>
 

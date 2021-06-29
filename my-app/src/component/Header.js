@@ -19,6 +19,7 @@ export class Header extends Component {
           {/* <Navbar.Brand href="#home">photographer</Navbar.Brand> */}
           {/* <img src='public/Logo_Captureit_bw.png' style={{}} /> */}
           {/* <Nav.Link href="/">Home</Nav.Link> */}
+
           <div className='navbar-container' >
             <p className='navbar-logo'>
               CaptureIt
@@ -39,9 +40,7 @@ export class Header extends Component {
             </div>
             {isAuthenticated ? <Logoutbtn /> : <Loginbutton />}
           </div>
-          {/* <Loginbutton />
-       <Logoutbtn /> */}
-
+          
 
 
 

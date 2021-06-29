@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import CardPhoto from "./CardPhoto";
 import axios from "axios";
 import { withAuth0 } from '@auth0/auth0-react';
 import Addphoto from "./Addphoto";
 import Carduserphoto from "./Carduserphoto";
-
+// import myPhotos from "./MyPhoto.css"
 export class MyPhoto extends Component {
   constructor(props) {
     super(props);
@@ -14,37 +13,11 @@ export class MyPhoto extends Component {
     };
   }
 
-  //this function to delete the image from the database that the user choose
-
-  deletePhoto = async (index) => {
-    console.log(
-      "🚀 ~ file: MyPhoto.js ~ line 25 ~ MyPhoto ~ deletePhoto ~ index",
-      index
-    );
-
-    let user = this.props.auth0.user.email;
-    const photos = await axios.delete(
-      `http://localhost:3010/deletephoto/${index}`,
-      { params: { email: user } }
-    );
-
-    this.setState({
-      data: photos.data,
-    });
-  };
+  
 
   //this function to render the image from the database that the user choose
   componentDidMount = async () => {
-    console.log('heeer');
     let email = this.props.auth0.user.email;
-    let url = `http://localhost:3010/getphoto?email=${email}`;
-    axios.get(url).then((photoResult) => {
-      let photoData = photoResult.data;
-      this.setState({
-        data: photoData,
-      });
-      console.log(this.state.data);
-    });
       // localhost:3010/getuserphoto?email=abdullah@yahoo.com
       let urluserPhoto = `http://localhost:3010/getuserphoto?email=${email}`;
     axios.get(urluserPhoto).then((photoResult) => {
@@ -54,7 +27,6 @@ export class MyPhoto extends Component {
       });
     });
   };
-//this function to return the data that user input in the form and store it in the database
   addphoto=(event)=>{
     console.log('test');
     event.preventDefault();
@@ -80,7 +52,7 @@ export class MyPhoto extends Component {
   }
 
 
-  deleteUserPhoto = async (index) => {
+  deleteUserPhoto = async (index,url) => {
     console.log(
       "🚀 ~ file: MyPhoto.js ~ line 25 ~ MyPhoto ~ deletePhoto ~ index",
       index
@@ -91,11 +63,20 @@ export class MyPhoto extends Component {
       `http://localhost:3010/deleteUserphoto/${index}`,
       { params: { email: user } }
     );
-
     this.setState({
       userPhoto: userPhotos.data,
     });
     this.componentDidMount();
+    console.log(url);
+    const userPublishedPhotos = await axios.delete(
+      `http://localhost:3010/deletePublishedphoto/${url}`,
+      { params: { email: user } }
+      );
+      // http://localhost:3010/deletePublishedphoto/
+      
+
+
+
 
   };
  
@@ -104,10 +85,12 @@ export class MyPhoto extends Component {
     return (
       <div>
         <Addphoto getInfo={this.addphoto} />
+        {/* <div class="overlay"> */}
         {isAuthenticated&&<h2>Welcome {user.nickname}</h2> }
+        {/* </div> */}
         {/* <img src={user.picture} alt='t'/> */}
         <Carduserphoto userphoto={this.state.userPhoto} deletePhoto={this.deleteUserPhoto}/>
-        <CardPhoto photo={this.state.data} deletePhoto={this.deletePhoto} />
+       
       </div>
     );
   }

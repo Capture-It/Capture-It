@@ -1,0 +1,255 @@
+/* img.card-img-top{
+    height: 400px;
+    width: 100%;
+} */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,800);
+
+.container:before,
+.container:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font: 300 1em/1.5 "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  text-decoration: none;
+  color: #111;
+}
+
+.img-container {
+  margin-left: 10%;
+  border-radius: 5px;
+  /* text-align: center; */
+  z-index: -10;
+}
+
+/* html, body{background: rgb(236, 240, 241);} */
+
+section.container {
+  min-width: 500px;
+  margin-left: 10% auto;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  text-align: center;
+}
+/* a:hover{border-bottom: 1px solid #111;} 
+    h1{font-size: 2em; padding: 20px 0;}
+    p{
+      font-size: .75em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 20px 0;
+    } */
+
+.btttn:hover {
+  cursor: pointer;
+}
+.btttn {
+  background: transparent;
+  outline: none;
+  position: relative;
+  border: 2px solid #111;
+  padding: 15px 50px;
+  overflow: hidden;
+}
+
+/*.btttn:before (attr data-hover)*/
+.btttn:hover:before {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+.btttn:before {
+  content: attr(data-hover);
+  position: absolute;
+  top: 1.1em;
+  left: 0;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 800;
+  font-size: 0.8em;
+  opacity: 0;
+  transform: translate(-100%, 0);
+  transition: all 0.3s ease-in-out;
+}
+/*.btttn div (.btttn text before hover)*/
+.btttn:hover div {
+  opacity: 0;
+  transform: translate(100%, 0);
+}
+.btttn div {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 800;
+  font-size: 0.8em;
+  transition: all 0.3s ease-in-out;
+}
+
+.text-container {
+  margin-left: 70px;
+  margin-top: -50px;
+  background-color: black;
+  opacity: 70%;
+  color: blanchedalmond;
+  width: 30%;
+  text-align: center;
+  border-radius: 55%;
+  height: 10%;
+}
+.img-container:hover {
+  z-index: -10;
+  -webkit-transform: translateX(-3px);
+  transform: translateX(-10px);
+}
+
+/* *{padding: 0; margin: 0; box-sizing: border-box;} */
+/* body{height: 900px;}
+header {
+	background: url('http://www.autodatz.com/wp-content/uploads/2017/05/Old-Car-Wallpapers-Hd-36-with-Old-Car-Wallpapers-Hd.jpg');
+	text-align: center;
+	width: 100%;
+	height: auto;
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+	overflow: hidden;
+	border-radius: 0 0 85% 85% / 30%;
+} */
+.overlay {
+  margin-bottom: 3%;
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+  color: #fff;
+  text-shadow: 1px 1px 1px #333;
+  /* background-image: linear-gradient(135deg, #9f05ff69 10%, #fd5e086b 100%); */
+  background-image: url("https://images.unsplash.com/photo-1605879192407-d2879dee4fe4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80");
+  text-align: center;
+  width: 100%;
+  height: 600px;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0 0 85% 85% / 30%;
+}
+
+h2 {
+  font: 300 1em/1.5 "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 80px;
+  margin-bottom: 30px;
+  /* background-color: #333;
+  opacity: 10%; */
+  color: whitesmoke;
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+  margin-bottom: 30px;
+}
+
+/* button {
+	border: none;
+	outline: none;
+	padding: 10px 20px;
+	border-radius: 50px;
+	color: #333;
+	background: #fff;
+	margin-bottom: 50px;
+	box-shadow: 0 3px 20px 0 #0000003b;
+} */
+/* button:hover{
+	cursor: pointer;
+} */
+
+/* //////////////////////// */
+
+/* 
+footer {
+  position: absolute;
+  margin-bottom: 0%;
+}
+.box {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 15px;
+  margin: 0 auto;
+}
+.card {
+  position: relative;
+  width: 250px;
+  height: 350px;
+  background: white;
+  margin: 0 auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.card:before,
+.card:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background: white;
+  transition: 0.5s;
+  z-index: -1;
+}
+.card:hover:before {
+  transform: rotate(20deg);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+.card:hover:after {
+  transform: rotate(10deg);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+.card .imgBx {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  right: 10px;
+  background: #222;
+  transition: 0.5s;
+  z-index: 1;
+}
+
+.card:hover .imgBx {
+  bottom: 80px;
+}
+
+.card .imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card .details {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  height: 60px;
+  text-align: center;
+}
+
+.card .details h4 {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  font-size: 20px;
+  color: #777;
+  text-transform: uppercase;
+}
+
+.card .details h4 span {
+  font-weight: 500;
+  font-size: 16px;
+  color: #f38695;
+  display: block;
+  margin-top: 5px;
+} */
