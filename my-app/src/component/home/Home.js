@@ -3,6 +3,8 @@ import InputForm from "./InputForm";
 import axios from "axios";
 import CardData from "./CardData";
 import { withAuth0 } from '@auth0/auth0-react';
+import SweetAlert from 'react-bootstrap-sweetalert';
+
 
 export class Home extends Component {
   
@@ -83,7 +85,8 @@ addUserToDB=async ()=>{
       console.log(e);
     }
   };
-  
+   
+   
   sendPhoto = async (title, des, imgUrl) => {
     if(this.props.auth0.isAuthenticated){
     let email=this.props.auth0.user.email;
@@ -91,11 +94,12 @@ addUserToDB=async ()=>{
     await this.setState({
       picData: { title, des, imgUrl,email }
     });
+
+
  
     let url = `http://localhost:3010/addPhoto`;
     axios.post(url, this.state.picData).then((result) => {
-      console.log('done');
-      
+    
     });}
     else{
 alert ('you should login to use this feature')  

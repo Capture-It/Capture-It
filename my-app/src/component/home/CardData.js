@@ -10,24 +10,24 @@ export class CardData extends Component {
         <CardColumns>
         {this.props.data.map((item,idx)=>{
           return(
-        // <Card style={{ width: "18rem" }} key={idx}>
-        //   <Card.Img variant="top" src={item.imagel}   />
-        //   <Card.Body>
-        //     <Card.Title>{item.title}</Card.Title>
-        //     <Accordion defaultActiveKey="0">
-        //             <Accordion.Toggle as={Card.Header} eventKey="1">
-        //               Picture Description <br /> <br />
-        //               <small className="text-muted">Click for Description</small>
-        //             </Accordion.Toggle>
-        //             <Accordion.Collapse eventKey="1">
-        //               <Card.Body>     {item.description} </Card.Body>
-        //             </Accordion.Collapse>
-        //           </Accordion>
+        <Card style={{ width: "18rem" }} key={idx}>
+          <Card.Img variant="top" src={item.imagel}   />
+          <Card.Body>
+            <Card.Title>{item.title}</Card.Title>
+            <Accordion defaultActiveKey="0">
+                    <Accordion.Toggle as={Card.Header} eventKey="1">
+                      Picture Description <br /> <br />
+                      <small className="text-muted">Click for Description</small>
+                    </Accordion.Toggle>
+                    <Accordion.Collapse eventKey="1">
+                      <Card.Body>     {item.description} </Card.Body>
+                    </Accordion.Collapse>
+                  </Accordion>
 
-        //   </Card.Body>
-        //     <Button variant="primary" onClick={()=>this.props.sendphoto(item.title,item.description,item.imagel)}>Add To My Photo</Button>
-        // </Card>
-        <img src={item.imagel} alt="jlk"/>
+          </Card.Body>
+            <Button variant="primary" onClick={()=>this.props.sendphoto(item.title,item.description,item.imagel)}>Add To My Photo</Button>
+        </Card>
+        // <img src={item.imagel} alt="jlk"/>
 
           )
         })}
