@@ -30,7 +30,7 @@ export class Addphoto extends Component {
           <Form onSubmit={this.props.getInfo}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Photo Title</Form.Label>
-                <Form.Control type="text" placeholder="Enter Photo Title" name="title"  />
+                <Form.Control type="text" placeholder="Enter Photo Title" name="title" required   />
                 <Form.Text className="text-muted">
                   Pleas add your Photo.
                 </Form.Text>

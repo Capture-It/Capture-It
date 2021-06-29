@@ -10,31 +10,29 @@ export class Carduserphoto extends Component {
     super(props);
     this.state={
       disable:false,
-      data:[]
+      data:[],
+      flag:''
     }
   }
  
-   sendPublished=(item)=>{
-    this.setState({
-      disable:true
-    })
-    let resultPublished;
+   sendPublished= async (item)=>{
+    console.log("first",item.url);
     let url1 = "http://localhost:3010/getPublishedDataDB";
-    axios.get(url1).then((result) => {
+    await axios.get(url1).then((result) => {
       this.setState({
         data:result.data
       })
-      console.log(this.state.data);
+      this.state.data.forEach((x)=>{
+        x.userPublishedData.forEach((element,idx)=>{
+         if(element.url===item.url){
+           this.setState({
+             flag:element.url
+           }) 
+           console.log("tesxt flag",this.state.flag);         
+          }
+        })
+      })
     });
-    
-    // resultPublished.forEach((item)=>{
-    //   item[0].forEach((element,idx)=>{
-    //     console.log(element);
-    //   })
-    // })
-
-
-
      console.log(item.url);
     const publishData={
       email:this.props.auth0.user.email,
@@ -43,12 +41,15 @@ export class Carduserphoto extends Component {
       description:item.description,
       url:item.url,
     }
-    console.log(this.props.auth0.user);
-    let url=`http://localhost:3010/addPublishedDataToDB?`;
-    axios.post(url,publishData).then((result)=>{
-      console.log('inserted');
-    })
-
+    if(this.state.flag){
+      alert("It's Already Published")
+    }else{
+      console.log(this.props.auth0.user);
+      let url=`http://localhost:3010/addPublishedDataToDB?`;
+      axios.post(url,publishData).then((result)=>{
+        console.log('inserted');
+      })
+  }
 
    }
     render() {

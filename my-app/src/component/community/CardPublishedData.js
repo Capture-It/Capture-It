@@ -40,13 +40,10 @@ export class CardPublishedData extends Component {
     let url = "http://localhost:3010/addCommentToDB";
       axios.post(url, object).then((result) => {
       console.log(result.data);
-      // this.setState ({
-      //   publishedData: result.data,
-      // });
-      // console.log(this.state.publishedData);
+      this.setState ({
+        publishedData: result.data,
+      });
     });
-
-    this.componentDidMount();
   };
   render() {
     return (
