@@ -3,7 +3,7 @@
 # Team leader
 Omar D'yab : 29, and still believe I am young, An engineer, I have a Bachelor’s Communications Engineer,  I have a European master's degree in Computer science, into chess and basketball.
 
-# Teammembers : 
+# Team members : 
 1. Nura Tabanjeh: hold a bachelor's degree in Civil Engineering from BAU, a web development student at ASAC, Nura enjoys ensuring that things running smoothly and create operations strategies to keep everything perfect.
 
 2. Aya Abu Dager: 23 years old, have a bachelor’s degree in architectural engineering from Al al-Bayt University, decided to shift her career to be a full stack developer.
@@ -56,7 +56,7 @@ What pain point does this project solve?
 Note: The app won't turn into an android app. 
 
 
-# MVP:
+# Minimum Viable Product (MVP):
 Platform website to share photos among photographers.  
 Stretch: upload photos from local.
 
