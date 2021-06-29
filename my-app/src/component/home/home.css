@@ -1,0 +1,6 @@
+img .hero-container {
+  width: 100%;
+  height: 30%;
+  position: fixed;
+  z-index: -1;
+}

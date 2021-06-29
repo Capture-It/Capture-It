@@ -3,7 +3,7 @@ import InputForm from "./InputForm";
 import axios from "axios";
 import CardData from "./CardData";
 import { withAuth0 } from '@auth0/auth0-react';
-
+// import "./home.css"
 export class Home extends Component {
   
   
@@ -113,10 +113,17 @@ alert ('you should login to use this feature')
   render() {
     return (
       <div>
-        {/* {isAuthenticated && this.state.flag && this.addUserToDB()} */}
+        <div className='hero-container'>
+          <img style={{ width: "100%", hight: "50px", zIndex: "-1" }} src='http://akphotographer.in/gall/banner-5.jpg' />
 
-        <InputForm getPhoto={this.searchPhoto} />
-        <CardData data={this.state.photoData} sendphoto={this.sendPhoto} />
+
+        </div>
+        <div>
+          {/* {isAuthenticated && this.state.flag && this.addUserToDB()} */}
+
+          <InputForm getPhoto={this.searchPhoto} />
+          <CardData data={this.state.photoData} test={this.sendPhoto} />
+        </div>
       </div>
     );
   }

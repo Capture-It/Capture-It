@@ -1,18 +1,16 @@
-body{
-    background-image: url('1.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+body {
+  background-image: url("1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-
-.btn button{
- 
-    width: 10%;
-    height: 40px;
-    border-radius: 10%;
-    margin: 15% 0% 0 48%;
-background-color: #162447;
-color: white;
-font-weight: bold;
-font-size: larger;
+.btn button {
+  width: 10%;
+  height: 40px;
+  border-radius: 10%;
+  margin: 15% 0% 0 48%;
+  background-color: #162447;
+  color: white;
+  font-weight: bold;
+  font-size: larger;
 }
