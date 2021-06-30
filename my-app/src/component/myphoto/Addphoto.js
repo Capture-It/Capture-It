@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Button, Modal } from "react-bootstrap";
-
+import "./addphoto.css";
 export class Addphoto extends Component {
     constructor(props){
         super(props);
@@ -18,8 +18,9 @@ export class Addphoto extends Component {
         return (
 
             <div>
-                 <Button variant="primary" size="lg" onClick={this.closemodal} className="button1" active>Add Picture</Button>
-
+              
+                 <Button className="mb-9" variant="primary" size="lg" onClick={this.closemodal} className="button1" active>Add Picture</Button>
+                 
                  <Modal show={this.state.show} onHide={this.closemodal}>
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">

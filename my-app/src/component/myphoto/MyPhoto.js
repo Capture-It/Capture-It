@@ -3,7 +3,7 @@ import axios from "axios";
 import { withAuth0 } from '@auth0/auth0-react';
 import Addphoto from "./Addphoto";
 import Carduserphoto from "./Carduserphoto";
-
+import "./myPhoto.css"
 export class MyPhoto extends Component {
   constructor(props) {
     super(props);
@@ -135,7 +135,10 @@ export class MyPhoto extends Component {
     return (
       <div>
         <Addphoto getInfo={this.addphoto} />
+        
+      <div style={{zIndex:"-1"}}class="overlay">
         {isAuthenticated&&<h2>Welcome {user.nickname}</h2> }
+        </div>
         {/* <img src={user.picture} alt='t'/> */}
         <Carduserphoto
          userphoto={this.state.userPhoto} 
