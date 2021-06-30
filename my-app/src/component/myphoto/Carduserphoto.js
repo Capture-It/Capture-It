@@ -1,5 +1,5 @@
-import React, { Component,useState } from 'react'
-import { Card, Button, Accordion, Modal, Form } from "react-bootstrap";
+import React, { Component } from 'react'
+import {  Button, Modal, Form } from "react-bootstrap";
 import CardColumns from "react-bootstrap/CardColumns";
 import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
@@ -21,7 +21,7 @@ export class Carduserphoto extends Component {
  
    sendPublished= async (item)=>{
     console.log("first",item.url);
-    let url1 = "http://localhost:3010/getPublishedDataDB";
+    let url1 = `${process.env.REACT_APP_URL}/getPublishedDataDB`;
     await axios.get(url1).then((result) => {
       this.setState({
         data:result.data
@@ -32,12 +32,10 @@ export class Carduserphoto extends Component {
            this.setState({
              flag:element.url
            }) 
-           console.log("tesxt flag",this.state.flag);         
           }
         })
       })
     });
-     console.log(item.url);
     const publishData={
       email:this.props.auth0.user.email,
       nickName:this.props.auth0.user.nickname,
@@ -50,9 +48,9 @@ export class Carduserphoto extends Component {
       alert("It's Already Published")
     }else{
       console.log(this.props.auth0.user);
-      let url=`http://localhost:3010/addPublishedDataToDB?`;
+      let url=`${process.env.REACT_APP_URL}/addPublishedDataToDB?`;
       axios.post(url,publishData).then((result)=>{
-        console.log('inserted');
+        console.log('done');
       })
   }
 
@@ -69,13 +67,13 @@ export class Carduserphoto extends Component {
              
                 <img style={{ height: "493.067px", width: "500px", borderRadius: "5px", zIndex: "-1" }} src={item.url} ></img>
                 <h4 className="title">{item.title}</h4>
-                <p className="title1">{item.description}</p>
+                {/* <p className="title1">{item.description}</p> */}
 
                 {/* <button class="btttn" variant="primary" onClick={()=>this.props.deletePhoto(idx)} data-hover="Delete!"><div>Delete</div></button> */}
               
-                <button class="btttn1"onClick={() => this.props.updatePhoto(idx,item)}><FontAwesomeIcon icon={faEdit} /></button>
-                <button class="btttn2" onClick={()=>this.props.deletePhoto(idx,item.url)}><FontAwesomeIcon icon={faTrashAlt} /></button>
-                <button class="btttn3" disabled={this.state.disable} onClick={()=>this.sendPublished(item)}><FontAwesomeIcon icon={faShareSquare} /></button>
+                <button class="btttn1"onClick={() => this.props.updatePhoto(idx,item)}><FontAwesomeIcon icon={faEdit} size="lg" /></button>
+                <button class="btttn2" onClick={()=>this.props.deletePhoto(idx,item.url)}><FontAwesomeIcon icon={faTrashAlt} size="lg"/></button>
+                <button class="btttn3" disabled={this.state.disable} onClick={()=>this.sendPublished(item)}><FontAwesomeIcon icon={faShareSquare} size="lg"/></button>
                 </div>
              
             </>
@@ -108,6 +106,10 @@ export class Carduserphoto extends Component {
               <Form.Group controlId="formBasicPassword">
                 <Form.Label>description</Form.Label>
                 <Form.Control type="text" name='description' onChange={(e) => this.props.descriptionChange(e)} value={this.props.description} />
+              </Form.Group>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>url</Form.Label>
+                <Form.Control type="text" value={this.props.newimgurl} disabled/>
               </Form.Group>
 
               <Button variant="primary" type="submit" onClick={this.props.handleCloseUpadate}>

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import { Card, Button, Accordion } from "react-bootstrap";
 import CardColumns from "react-bootstrap/CardColumns";
 import  "./CardPhoto.css"
 export class CardPhoto extends Component {
@@ -8,8 +7,8 @@ export class CardPhoto extends Component {
       <div>
          
       <div class="overlay">
-              <h2>My Favouraite Photos</h2>
-              <p>Provided From CaptureIt</p>
+              <h2 style={{marginTop:"15%", textAlign:"center" }}>My Favouraite Photos</h2>
+              
               </div>
         <CardColumns>
           {this.props.photo.map((item,idx) => {
@@ -17,7 +16,7 @@ export class CardPhoto extends Component {
             return (
               <>
               <div className="maindiv">
-                <img style={{ height: "493.067px", width: "500px", borderRadius: "5px", zIndex: "-1" }} src={item.url}></img>
+                <img style={{ height: "493.067px", width: "500px", borderRadius: "5px", zIndex: "-1" }} src={item.url} alt="pic"></img>
                 <h4>{item.title}</h4>
                 <button class="btttn" variant="primary" onClick={()=>this.props.deletePhoto(idx)} data-hover="Delete!"><div>Delete</div></button>
               </div>

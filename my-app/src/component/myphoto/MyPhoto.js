@@ -15,7 +15,9 @@ export class MyPhoto extends Component {
       photoName:'',
       description:'',
       index:0,
-      imgurl:''
+      imgurl:'',
+      updateimg:'',
+
     };
   }
 
@@ -42,6 +44,7 @@ export class MyPhoto extends Component {
       imgurl:event.target.imgurl.value,
       email: this.props.auth0.user.email
     }
+    console.log(process.env.REACT_APP_URL);
     let url = `http://localhost:3010/addUserPhoto`;
     axios.post(url,photoobj).then((photoResult) => {
       let userPhoto = photoResult.data;
@@ -97,8 +100,11 @@ export class MyPhoto extends Component {
       index:idx,
       showUpdate:true,
       photoName:this.state.userPhoto[idx].title,
-      description:this.state.userPhoto[idx].description
+      description:this.state.userPhoto[idx].description,
+      updateimg:this.state.userPhoto[idx].url
+
     })
+
   }
 
   updatePhotoHandler= async(event,item)=>{
@@ -107,7 +113,7 @@ export class MyPhoto extends Component {
 console.log(item);
     const index = this.state.index;
     const userData ={
-      imgurl:this.state.imgurl,
+      imgurl:this.state.updateimg,
       photoName : event.target.photoName.value,
       description:event.target.description.value,
       email:this.props.auth0.user.email,
@@ -142,7 +148,7 @@ console.log(item);
         <Addphoto getInfo={this.addphoto} />
         
       <div style={{zIndex:"-1"}}class="overlay">
-        {isAuthenticated&&<h2>Welcome {user.nickname}</h2> }
+        {isAuthenticated&&<h2 style={{marginTop:"15%", textAlign:"center"}} >Welcome {user.nickname}</h2> }
         </div>
         {/* <img src={user.picture} alt='t'/> */}
         <Carduserphoto
@@ -156,6 +162,7 @@ console.log(item);
          descriptionChange={this.descriptionChange}
          photoName={this.state.photoName}
          description={this.state.description}
+         newimgurl={this.state.updateimg}
          />
       </div>
     );

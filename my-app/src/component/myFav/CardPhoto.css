@@ -147,6 +147,13 @@ h2 {
   /* background-color: #333;
   opacity: 10%; */
   color: whitesmoke;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 20%;
+  height: 10%;
+  border-radius: 30px;
+  margin-left: 40%;
+  margin-top: 70px;
+  position: absolute;
 }
 
 p {

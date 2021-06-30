@@ -18,7 +18,7 @@ export class Myfavourite extends Component {
     // this.props.auth0.user.picture='https://tse4.mm.bing.net/th?id=OIP.3PLCiUSmRbFhJtkdmY23_AHaEK&pid=Api&P=0&w=283&h=160'
     // console.log(this.props.auth0.user);
     let email = this.props.auth0.user.email;
-    let url = `http://localhost:3010/getphoto?email=${email}`;
+    let url = `${process.env.REACT_APP_URL}/getphoto?email=${email}`;
     axios.get(url).then((photoResult) => {
       let photoData = photoResult.data;
       this.setState({
@@ -31,14 +31,9 @@ export class Myfavourite extends Component {
   //this function to delete the image from the database that the user choose
 
   deletePhoto = async (index) => {
-    console.log(
-      "🚀 ~ file: MyPhoto.js ~ line 25 ~ MyPhoto ~ deletePhoto ~ index",
-      index
-    );
-
     let user = this.props.auth0.user.email;
     const photos = await axios.delete(
-      `http://localhost:3010/deletephoto/${index}`,
+      `${process.env.REACT_APP_URL}/deletephoto/${index}`,
       { params: { email: user } }
     );
 

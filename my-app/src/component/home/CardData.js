@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import { Card, Button, Accordion } from "react-bootstrap";
 import CardColumns from 'react-bootstrap/CardColumns';
 import './CardData.css'
 
@@ -14,7 +13,7 @@ export class CardData extends Component {
             <>
             
               <div class="img-container">
-                <img style={{ height: "493.067px", width: "500px", borderRadius: "5px", zIndex: "-1" }} src={item.imagel}></img>
+                <img style={{ height: "493.067px", width: "500px", borderRadius: "5px", zIndex: "-1" }} src={item.imagel} alt="pic"></img>
               </div>
               <div class="text-container">
                 <h4>{item.title}</h4>

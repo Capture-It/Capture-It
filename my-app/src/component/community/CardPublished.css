@@ -1,4 +1,4 @@
-/* 
+
 .closebutton {
   height: fit-content;
   width: fit-content;
@@ -9,19 +9,7 @@
   border:none;
 
 }
-#heart {
-color: gray;
-  height: fit-content;
-  width: fit-content;
-  display: inline-block;
-  position: absolute;
-  right: 7%;
-  background: none;
-  border:none;
-}
-.coffie{
-  color: black;
-}
+ 
 .commentsbutton {
   margin-top: 2%;
 }
@@ -30,4 +18,4 @@ color: gray;
 }
 .combad {
 padding: 20px;
-} */
+}

@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Card, Button, Accordion, Form, Badge } from "react-bootstrap";
+import { Card, Accordion, Form, Badge } from "react-bootstrap";
 import CardColumns from "react-bootstrap/CardColumns";
 import { withAuth0 } from "@auth0/auth0-react";
 import "./CardPublished.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee, faHome, faTimes } from "@fortawesome/free-solid-svg-icons";
 import {
   faHeart,
   faCalendar,
@@ -43,9 +42,8 @@ export class CardPublishedData extends Component {
       pic: this.props.auth0.user.picture,
       id: value._id,
     };
-    let url = "http://localhost:3010/addCommentToDB";
+    let url = `${process.env.REACT_APP_URL}/addCommentToDB`;
     axios.post(url, object).then((result) => {
-      console.log(result.data);
       this.setState({
         publishedData: result.data,
       });
@@ -59,9 +57,8 @@ export class CardPublishedData extends Component {
       id: value._id,
     };
 
-    let url = "http://localhost:3010/addlike";
+    let url = `${process.env.REACT_APP_URL}/addlike`;
     axios.post(url, object).then((result) => {
-      // console.log(result.data);
       this.setState({
         publishedData: result.data,
       });
