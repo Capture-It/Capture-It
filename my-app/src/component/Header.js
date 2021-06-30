@@ -31,7 +31,7 @@ export class Header extends Component {
 
               {isAuthenticated && <Link style={{ textDecoration: "none", color: '#fff' }} to="/myphotos">My Photos</Link>}
               { isAuthenticated&& <Link style={{ textDecoration: "none", color: '#fff' }} to="/myfavourite">My Favourite</Link>}
-              <Link style={{ textDecoration: "none", color: '#fff' }}to="/Community">Community</Link>
+              { isAuthenticated&&  <Link style={{ textDecoration: "none", color: '#fff' }}to="/Community">Community</Link>}
               <Link style={{ textDecoration: "none", color: '#fff' }} to="/AboutUs">About Us</Link>
 
 

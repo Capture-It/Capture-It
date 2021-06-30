@@ -16,21 +16,11 @@ export class CardPhoto extends Component {
             
             return (
               <>
-              <div class="img-container">
+              <div className="maindiv">
                 <img style={{ height: "493.067px", width: "500px", borderRadius: "5px", zIndex: "-1" }} src={item.url}></img>
-              </div>
-              <div class="text-container">
                 <h4>{item.title}</h4>
-                
-
-              </div>
-
-
-              <section class="container">
-
                 <button class="btttn" variant="primary" onClick={()=>this.props.deletePhoto(idx)} data-hover="Delete!"><div>Delete</div></button>
-
-              </section>
+              </div>
             </>
             );
           })}

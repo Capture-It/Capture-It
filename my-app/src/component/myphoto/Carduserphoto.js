@@ -57,53 +57,7 @@ export class Carduserphoto extends Component {
   }
 
    }
-
-   handleCloseUpadate=()=>{
-    this.setState({
-      showUpdate:false
-    })
-  }
-
-  updatePhoto=(idx)=>{
-    this.setState({
-      index:idx,
-      showUpdate:true,
-      photoName:this.state.userPhoto[idx].title,
-      description:this.state.userPhoto[idx].description
-    })
-  }
-
-  updatePhotoHandler= async(event,item)=>{
-    event.preventDefault();
-
-console.log(item);
-    const index = this.state.index;
-    const userData ={
-      imgurl:this.state.imgurl,
-      photoName : event.target.photoName.value,
-      description:event.target.description.value,
-      email:this.props.auth0.user.email,
-    }
-    console.log(userData);
-    // console.log(index,userData)
-    const updatedData = await axios.put(`http://localhost:3010/updatePhoto/${index}`,userData)
-
-    this.setState({
-      userPhoto:updatedData.data
-    })
-  }
-
-  nameChange=(e)=>{
-    this.setState({
-      photoName:e.target.photoName,
-    })
-  }
-
- descriptionChange=(e)=>{
-    this.setState({
-      description:e.target.description,
-    })
-  }
+   
     render() {
         return (
             <div>
@@ -111,25 +65,29 @@ console.log(item);
           {this.props.userphoto.map((item,idx) => {
             return (
               <>
-              <div  class="img-container">
+              <div className="maindiv1">
+             
                 <img style={{ height: "493.067px", width: "500px", borderRadius: "5px", zIndex: "-1" }} src={item.url} ></img>
-              </div>
-              <div class="text-container">
-                <h4>{item.title} </h4>
-              
-
-              </div>
-
-
-              <section class="container">
+                <h4 className="title">{item.title}</h4>
+                <p className="title1">{item.description}</p>
 
                 {/* <button class="btttn" variant="primary" onClick={()=>this.props.deletePhoto(idx)} data-hover="Delete!"><div>Delete</div></button> */}
               
-                <button class="btttn"onClick={() => this.props.updatePhoto(idx,item)}><FontAwesomeIcon icon={faEdit} /></button>
-                <button class="btttn" onClick={()=>this.props.deletePhoto(idx,item.url)}><FontAwesomeIcon icon={faTrashAlt} /></button>
-                <button class="btttn" disabled={this.state.disable} onClick={()=>this.sendPublished(item)}><FontAwesomeIcon icon={faShareSquare} /></button>
-              </section>
+                <button class="btttn1"onClick={() => this.props.updatePhoto(idx,item)}><FontAwesomeIcon icon={faEdit} /></button>
+                <button class="btttn2" onClick={()=>this.props.deletePhoto(idx,item.url)}><FontAwesomeIcon icon={faTrashAlt} /></button>
+                <button class="btttn3" disabled={this.state.disable} onClick={()=>this.sendPublished(item)}><FontAwesomeIcon icon={faShareSquare} /></button>
+                </div>
+             
             </>
+             
+              
+               
+              
+
+              
+
+
+              
             );
           })}
         </CardColumns>
