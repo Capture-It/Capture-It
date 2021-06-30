@@ -129,7 +129,7 @@ export class CardPublishedData extends Component {
                             onSubmit={(e) => this.addcomment(e, item, value)}
                           >
                             <Form.Group
-                              className="mb-3"
+                              className="fix"
                               controlId="formBasicPassword"
                             >
                               <Form.Control

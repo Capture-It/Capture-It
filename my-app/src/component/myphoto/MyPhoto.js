@@ -101,8 +101,10 @@ export class MyPhoto extends Component {
     })
   }
 
-  updatePhotoHandler= async(event)=>{
+  updatePhotoHandler= async(event,item)=>{
     event.preventDefault();
+
+console.log(item);
     const index = this.state.index;
     const userData ={
       imgurl:this.state.imgurl,
@@ -110,7 +112,7 @@ export class MyPhoto extends Component {
       description:event.target.description.value,
       email:this.props.auth0.user.email,
     }
-    console.log(this.state.imgurl)
+    console.log(userData);
     // console.log(index,userData)
     const updatedData = await axios.put(`http://localhost:3010/updatePhoto/${index}`,userData)
 

@@ -57,24 +57,66 @@ export class Carduserphoto extends Component {
   }
 
    }
+
+   handleCloseUpadate=()=>{
+    this.setState({
+      showUpdate:false
+    })
+  }
+
+  updatePhoto=(idx)=>{
+    this.setState({
+      index:idx,
+      showUpdate:true,
+      photoName:this.state.userPhoto[idx].title,
+      description:this.state.userPhoto[idx].description
+    })
+  }
+
+  updatePhotoHandler= async(event,item)=>{
+    event.preventDefault();
+
+console.log(item);
+    const index = this.state.index;
+    const userData ={
+      imgurl:this.state.imgurl,
+      photoName : event.target.photoName.value,
+      description:event.target.description.value,
+      email:this.props.auth0.user.email,
+    }
+    console.log(userData);
+    // console.log(index,userData)
+    const updatedData = await axios.put(`http://localhost:3010/updatePhoto/${index}`,userData)
+
+    this.setState({
+      userPhoto:updatedData.data
+    })
+  }
+
+  nameChange=(e)=>{
+    this.setState({
+      photoName:e.target.photoName,
+    })
+  }
+
+ descriptionChange=(e)=>{
+    this.setState({
+      description:e.target.description,
+    })
+  }
     render() {
         return (
             <div>
                  <CardColumns>
           {this.props.userphoto.map((item,idx) => {
             return (
-<<<<<<< HEAD
-              <Card style={{ width: "27rem" }} key={idx}>
-                <Card.Img variant="top" src={item.url} height="500px" width="500px"/>
-=======
               <>
               <div  class="img-container">
-                <img style={{ height: "493.067px", width: "500px", borderRadius: "5px", zIndex: "-1" }} src={item.url}></img>
+                <img style={{ height: "493.067px", width: "500px", borderRadius: "5px", zIndex: "-1" }} src={item.url} ></img>
               </div>
               <div class="text-container">
                 <h4>{item.title} </h4>
               
->>>>>>> origin/nura-last
 
               </div>
 
@@ -82,7 +124,8 @@ export class Carduserphoto extends Component {
               <section class="container">
 
                 {/* <button class="btttn" variant="primary" onClick={()=>this.props.deletePhoto(idx)} data-hover="Delete!"><div>Delete</div></button> */}
-                <button class="btttn"onClick={() => this.props.updatePhoto(idx)}><FontAwesomeIcon icon={faEdit} /></button>
+              
+                <button class="btttn"onClick={() => this.props.updatePhoto(idx,item)}><FontAwesomeIcon icon={faEdit} /></button>
                 <button class="btttn" onClick={()=>this.props.deletePhoto(idx,item.url)}><FontAwesomeIcon icon={faTrashAlt} /></button>
                 <button class="btttn" disabled={this.state.disable} onClick={()=>this.sendPublished(item)}><FontAwesomeIcon icon={faShareSquare} /></button>
               </section>
