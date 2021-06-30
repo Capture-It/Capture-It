@@ -74,3 +74,6 @@ once access to the user photos is granted it can be shared publicly in which the
 
 1. Usability=> Having two collections for our database makes it easier to work on different components and retrieving data.
 2. Testability=> It can be run with relatively little preparatory effort, It can be tested with relatively few lines of code and It can be executed quickly.
+ 
+
+ Stay tuned for more! 
