@@ -13,7 +13,7 @@ Omar D'yab :  An engineer, I have a Bachelor’s in Communications Engineering, 
 4. Khaleel Ghanem :27 years old, hold a bachelor's in Software Engineering from Zarqa university. 
 I am passionate about learning new technologies and skills, and I hope to be a great developer.
 
-5. Abdallah Elian:
+5. Abdallah Elian: 23 years old, hold a bachelor's degree in computer science from Jordanian university, have a passion for programming, so now he's a web development student at ASAC.
 
 # Name of Project: Capture-It
 ## Summary of the idea.
