@@ -1,5 +1,5 @@
 import React, { Component,useState } from 'react'
-import { Card, Button, Accordion } from "react-bootstrap";
+import { Card, Button, Accordion, Modal, Form } from "react-bootstrap";
 import CardColumns from "react-bootstrap/CardColumns";
 import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
@@ -75,6 +75,7 @@ export class Carduserphoto extends Component {
                     </Accordion.Collapse>
                   </Accordion>
                 </Card.Body>
+                <Button onClick={() => this.props.updatePhoto(idx)}>Update</Button>
                 <Button onClick={()=>this.props.deletePhoto(idx,item.url)}>Delete</Button>
                 <Button disabled={this.state.disable} onClick={()=>this.sendPublished(item)}>Publish</Button>
               </Card>
@@ -82,6 +83,32 @@ export class Carduserphoto extends Component {
           })}
         </CardColumns>
                 
+        <Modal show={this.props.showUpdate} onHide={this.props.handleCloseUpadate}>
+          <Modal.Header closeButton>
+            <Modal.Title>Update your photo</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form onSubmit={(e) => this.props.updatePhotoHandler(e)}>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Photo Name</Form.Label>
+                <Form.Control type="text" name='photoName' onChange={(e) => this.props.nameChange(e)} value={this.props.photoName} />
+                <Form.Text className="text-muted">
+                </Form.Text>
+              </Form.Group>
+
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>description</Form.Label>
+                <Form.Control type="text" name='description' onChange={(e) => this.props.descriptionChange(e)} value={this.props.description} />
+              </Form.Group>
+
+              <Button variant="primary" type="submit" onClick={this.props.handleCloseUpadate}>
+                Update
+              </Button>
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+          </Modal.Footer>
+        </Modal>
             </div>
         )
     }
