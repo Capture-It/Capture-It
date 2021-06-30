@@ -1,9 +1,14 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Card, Button, Accordion, Form, Image } from "react-bootstrap";
+import { Card, Button, Accordion, Form, Badge } from "react-bootstrap";
 import CardColumns from "react-bootstrap/CardColumns";
 import { withAuth0 } from "@auth0/auth0-react";
 import "./CardPublished.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee ,faHome,faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faHeart,faCalendar,faUser,faComment } from '@fortawesome/free-regular-svg-icons'
+import Comments from './Comments';
+
 
 export class CardPublishedData extends Component {
   constructor(props) {
@@ -54,58 +59,47 @@ export class CardPublishedData extends Component {
             return item.userPublishedData.map((value, idx) => {
               return (
                 < Card style={{ width: "23rem" }} className='pubCard' key={idx}>
-                  <Card.Img variant="top" className='pubImg' src={value.url} />
-
-
-                    <Card.Title className='by'> 👥 {value.name}</Card.Title>
-                    <Card.Title className='by'>◾{value.title}</Card.Title>
-        
-
-                    <Accordion defaultActiveKey="0">
-                    <Accordion.Toggle className='view' as={Card.Header} eventKey="1">
-                    💬 View Comment <br /> <br />
-      
-                    </Accordion.Toggle>
-                    <Accordion.Collapse eventKey="1">
+                   <button className="closebutton" title="Delete Photo"><FontAwesomeIcon icon={faTimes} size="lg" /></button>
+                    <button id="heart"><FontAwesomeIcon icon={faHeart} title="add to collection" size="lg" /></button>
+                  <Card.Img variant="top"  src={value.url} />
                   <Card.Body>
-
-
-                                        
+                        <Card.Title className="cardtitle"><FontAwesomeIcon icon={faUser} /> {value.name}</Card.Title>
+                        <Card.Text> {console.log(value)}
+                        <Badge class="combad" variant="secondary">{value.title}</Badge>{' '}
+                        <Badge class="combad" variant="secondary">{value.description}</Badge>{' '}
+                        </Card.Text>
+                    </Card.Body>
+                    <Accordion >
+                    <Card>
+                    <Card.Header>
+                    <Accordion.Toggle className='view' as={Card.Header} eventKey="0">
+                    <FontAwesomeIcon icon={faComment} /> View Comment <br /> <br />
+                    </Accordion.Toggle>
+                    </Card.Header>
+                    <Accordion.Collapse eventKey="0">
+                  <Card.Body>
                     {value.comment.map((element, i) => {
                       return (
-                        <Card.Body  key={i} className='commCard'>
-                          {" "}
-                          <Image
-                            src={element.url}
-                            className="userimg"
-                            roundedCircle
-                          />
-                          {` ${element.commenter}`}
-                          <br />
-                         <p class='commText'>{element.text}{" "}</p> 
-                         <hr class='hrhr'></hr>
-                        </Card.Body>
+                        <Comments key={i} username={element.commenter} userimg={element.url} posttime="Today at 6:00PM" usercomment={element.text}/>
                       );
                     })}
-
-                  </Card.Body>
-                     </Accordion.Collapse>
-                      </Accordion>
-
                   <Form onSubmit={(e) => this.addcomment(e, item, value)}>
                     <Form.Group className="mb-3" controlId="formBasicPassword" >
                       <Form.Control 
                         as="textarea"
-                        rows={3}
-                        placeholder="Comment"
+                        rows={2}
+                        placeholder="Write a comment..."
                         name="comment"
                       />
                     </Form.Group>
                     <section class="container">
-                <button class="btttn" type="submit" variant="primary" data-hover="Click!"><div>comment</div></button>
-              </section>
-                
+                      <button class="btttn" type="submit" variant="primary" data-hover="Click!"><div>Post</div></button>
+                    </section>
                   </Form>
+                  </Card.Body>
+                        </Accordion.Collapse>
+                    </Card>
+                    </Accordion>
                 </Card>
               );
             });
