@@ -1,73 +1,76 @@
-# Getting Started with Create React App
+# Capture-It
 
-## test
+# Team leader
+Omar D'yab :  An engineer, I have a Bachelor’s in Communications Engineering,  I have a European Master's degree in Computer science, into chess and basketball.
 
-fff
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Team members : 
+1. Nura Tabanjeh: hold a bachelor's degree in Civil Engineering from BAU, a web development student at ASAC, Nura enjoys ensuring that things running smoothly and create operations strategies to keep everything perfect.
 
-## Available Scripts
+2. Aya Abu Dager: 23 years old, have a bachelor’s degree in architectural engineering from Al al-Bayt University, decided to shift her career to be a full stack developer.
 
-In the project directory, you can run:
+3. Nooraldeen Khalaf: 24 years old, have a bachelor's degree in civil engineering from  Hashemite University, and has a passion to be a professional in the tech field.
 
-### `npm start`
+4. Khaleel Ghanem :27 years old, hold a bachelor's in Software Engineering from Zarqa university. 
+I am passionate about learning new technologies and skills, and I hope to be a great developer.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+5. Abdallah Elian: 23 years old, hold a bachelor's degree in computer science from Jordanian university, have a passion for programming, so now he's a web development student at ASAC.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Name of Project: Capture-It
+## Summary of the idea.
+Capture-It is a website for photographers, offering a platform for sharing and interacting among photographers.
+-storing your photos
+-library for photos
 
-### `npm test`
+# Wireframe 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Image of wwf2](images/wf2.JPG)
+![Image of wf1](images/wf1.JPG)
+![Image of wf3](images/wf3.JPG)
+![Image of wf4](images/wf4.JPG)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Group Project: Begin Wireframes & Software Requirements
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Five stories: 
+1. As a user, I want to select one or more of your random high-resolution images.
+2. As a user, I want to add my own photos to your website.
+3. As a user, I want to see other users' photos with information (eg. title, description) and interact with them.
+4. As a user, I want to decide whether to share my photos or not with other users. 
+5. As a user, I want to update or delete my photos. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## What is the vision of this product?
 
-### `npm run eject`
+-The vision of our product is to have a community in which photographers share their talents of their own photos. 
+What pain point does this project solve?
+-Having an interactive platform for photographers.
+## Why should we care about your product?
+1. It's a very nice friendly platform that can be trendy. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+2. The app gives the user the opportunity to select one or more random high-resolution images.
+3. The app gives the user the opportunity to add his/her own photos to the website.
+4. The app gives the user the opportunity to see other users' photos with information (eg. title, description) and interact with it.
+5. The app gives the user the opportunity to decide whether to share his/her photos with other users. 
+6. The app gives the user the opportunity to update or delete his/her photos. 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Note: The app won't turn into an android app. 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+# Minimum Viable Product (MVP):
+Platform website to share photos among photographers.  
+Stretch: upload photos from local.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Functional Requirements
+-Already mentioned. 
 
-### Code Splitting
+# Data Flow
+The user should sign in to get access to our service using auth0, then by default, once created, a user data inside one collection in our database will be initiated.
+the info of the user is shared with the database n order to add/delete/update records in our database.
+once access to the user photos is granted it can be shared publicly in which the other collection can render photos for different users with interaction methods.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## Non-Functional Requirements (301 & 401 only):
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Usability=> Having two collections for our database makes it easier to work on different components and retrieving data.
+2. Testability=> It can be run with relatively little preparatory effort, It can be tested with relatively few lines of code and It can be executed quickly.
