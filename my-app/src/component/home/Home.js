@@ -122,7 +122,7 @@ alert ('you should login to use this feature')
           {/* {isAuthenticated && this.state.flag && this.addUserToDB()} */}
 
           <InputForm getPhoto={this.searchPhoto} />
-          <CardData data={this.state.photoData} test={this.sendPhoto} />
+          <CardData data={this.state.photoData} sendPhoto1={this.sendPhoto} />
         </div>
       </div>
     );

@@ -22,7 +22,7 @@ export class CardData extends Component {
 
               <section class="container">
 
-                <button class="btttn" variant="primary" onClick={() => this.props.sendphoto(item.title, item.description, item.imagel)} data-hover="Save!"><div>Add To My Photo</div></button>
+                <button class="btttn" variant="primary" onClick={() => this.props.sendPhoto1(item.title, item.description, item.imagel)} data-hover="Save!"><div>Add To My Photo</div></button>
 
               </section>
             </>
