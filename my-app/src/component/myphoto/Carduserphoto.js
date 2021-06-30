@@ -3,6 +3,10 @@ import { Card, Button, Accordion, Modal, Form } from "react-bootstrap";
 import CardColumns from "react-bootstrap/CardColumns";
 import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
+import "./Carduserphoto.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee ,faHome,faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faHeart,faShareSquare,faTrashAlt,faComment, faEdit } from '@fortawesome/free-regular-svg-icons';
 export class Carduserphoto extends Component {
 
   
@@ -59,27 +63,30 @@ export class Carduserphoto extends Component {
                  <CardColumns>
           {this.props.userphoto.map((item,idx) => {
             return (
+<<<<<<< HEAD
               <Card style={{ width: "27rem" }} key={idx}>
                 <Card.Img variant="top" src={item.url} height="500px" width="500px"/>
+=======
+              <>
+              <div  class="img-container">
+                <img style={{ height: "493.067px", width: "500px", borderRadius: "5px", zIndex: "-1" }} src={item.url}></img>
+              </div>
+              <div class="text-container">
+                <h4>{item.title} </h4>
+              
+>>>>>>> origin/nura-last
 
-                <Card.Body>
-                  <Card.Title>{item.title}</Card.Title>
-                  <Accordion defaultActiveKey="0">
-                    <Accordion.Toggle as={Card.Header} eventKey="1">
-                      Picture Description <br /> <br />
-                      <small className="text-muted">
-                        Click for Description
-                      </small>
-                    </Accordion.Toggle>
-                    <Accordion.Collapse eventKey="1">
-                      <Card.Body> {item.description} </Card.Body>
-                    </Accordion.Collapse>
-                  </Accordion>
-                </Card.Body>
-                <Button onClick={() => this.props.updatePhoto(idx)}>Update</Button>
-                <Button onClick={()=>this.props.deletePhoto(idx,item.url)}>Delete</Button>
-                <Button disabled={this.state.disable} onClick={()=>this.sendPublished(item)}>Publish</Button>
-              </Card>
+              </div>
+
+
+              <section class="container">
+
+                {/* <button class="btttn" variant="primary" onClick={()=>this.props.deletePhoto(idx)} data-hover="Delete!"><div>Delete</div></button> */}
+                <button class="btttn"onClick={() => this.props.updatePhoto(idx)}><FontAwesomeIcon icon={faEdit} /></button>
+                <button class="btttn" onClick={()=>this.props.deletePhoto(idx,item.url)}><FontAwesomeIcon icon={faTrashAlt} /></button>
+                <button class="btttn" disabled={this.state.disable} onClick={()=>this.sendPublished(item)}><FontAwesomeIcon icon={faShareSquare} /></button>
+              </section>
+            </>
             );
           })}
         </CardColumns>
