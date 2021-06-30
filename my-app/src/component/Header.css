@@ -159,6 +159,8 @@
     backface-visibility: hidden;
     border-color: #fff;
   
+
+    
     -webkit-transition: width 350ms ease-in-out;
     transition: width 350ms ease-in-out;
     width: 70%;
