@@ -68,12 +68,15 @@
   letter-spacing: 0;
   margin-top: -525px;
   border-color: transparent;
+  background-color: black;
+  opacity: 0.5;
 }
 
 .mb-5:hover,
 .mb-5:active {
   letter-spacing: 5px;
-  background-color: transparent;
+  background-color: black;
+  opacity: 0.5;
   color: #fff;
   border-color: transparent;
 }
