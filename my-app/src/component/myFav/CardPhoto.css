@@ -146,7 +146,7 @@ p {
   margin-bottom: 30px;
 }
 
- button {
+/* button {
 	border: none;
 	outline: none;
 	padding: 10px 20px;
@@ -162,7 +162,7 @@ p {
 
 /* //////////////////////// */
 
-
+/* 
 footer {
   position: absolute;
   margin-bottom: 0%;
@@ -247,4 +247,4 @@ footer {
   color: #f38695;
   display: block;
   margin-top: 5px;
-} 
+} */

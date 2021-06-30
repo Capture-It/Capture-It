@@ -40,6 +40,7 @@ export class Carduserphoto extends Component {
       title:item.title,
       description:item.description,
       url:item.url,
+      like:0
     }
     if(this.state.flag){
       alert("It's Already Published")

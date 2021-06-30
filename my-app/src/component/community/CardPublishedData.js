@@ -4,11 +4,15 @@ import { Card, Button, Accordion, Form, Badge } from "react-bootstrap";
 import CardColumns from "react-bootstrap/CardColumns";
 import { withAuth0 } from "@auth0/auth0-react";
 import "./CardPublished.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee ,faHome,faTimes } from '@fortawesome/free-solid-svg-icons';
-import { faHeart,faCalendar,faUser,faComment } from '@fortawesome/free-regular-svg-icons'
-import Comments from './Comments';
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoffee, faHome, faTimes } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHeart,
+  faCalendar,
+  faUser,
+  faComment,
+} from "@fortawesome/free-regular-svg-icons";
+import Comments from "./Comments";
 
 export class CardPublishedData extends Component {
   constructor(props) {
@@ -29,11 +33,8 @@ export class CardPublishedData extends Component {
     });
   };
 
-  test=(result)=>{
-
-  }
+  test = (result) => {};
   addcomment = async (e, item, value) => {
-  
     e.preventDefault();
     const object = {
       email: item.email,
@@ -43,9 +44,25 @@ export class CardPublishedData extends Component {
       id: value._id,
     };
     let url = "http://localhost:3010/addCommentToDB";
-      axios.post(url, object).then((result) => {
+    axios.post(url, object).then((result) => {
       console.log(result.data);
-      this.setState ({
+      this.setState({
+        publishedData: result.data,
+      });
+    });
+  };
+
+  addlike = (e, item, value) => {
+    e.preventDefault();
+    let object = {
+      email: item.email,
+      id: value._id,
+    };
+
+    let url = "http://localhost:3010/addlike";
+    axios.post(url, object).then((result) => {
+      // console.log(result.data);
+      this.setState({
         publishedData: result.data,
       });
     });
@@ -58,48 +75,85 @@ export class CardPublishedData extends Component {
           {this.state.publishedData.map((item, idx) => {
             return item.userPublishedData.map((value, idx) => {
               return (
-                < Card style={{ width: "23rem" }} className='pubCard' key={idx}>
-                   <button className="closebutton" title="Delete Photo"><FontAwesomeIcon icon={faTimes} size="lg" /></button>
-                    <button id="heart"><FontAwesomeIcon icon={faHeart} title="add to collection" size="lg" /></button>
-                  <Card.Img variant="top"  src={value.url} />
+                
+                <Card style={{ width: "27rem" }} className="pubCard" key={idx}>
+                  
+
+                  <Card.Img variant="top" src={value.url} height="500px" width="500px"/>
                   <Card.Body>
-                        <Card.Title className="cardtitle"><FontAwesomeIcon icon={faUser} /> {value.name}</Card.Title>
-                        <Card.Text> {console.log(value)}
-                        <Badge class="combad" variant="secondary">{value.title}</Badge>{' '}
-                        <Badge class="combad" variant="secondary">{value.description}</Badge>{' '}
-                        </Card.Text>
-                    </Card.Body>
-                    <Accordion >
-                    <Card>
-                    <Card.Header>
-                    <Accordion.Toggle className='view' as={Card.Header} eventKey="0">
-                    <FontAwesomeIcon icon={faComment} /> View Comment <br /> <br />
-                    </Accordion.Toggle>
-                    </Card.Header>
-                    <Accordion.Collapse eventKey="0">
-                  <Card.Body>
-                    {value.comment.map((element, i) => {
-                      return (
-                        <Comments key={i} username={element.commenter} userimg={element.url} posttime="Today at 6:00PM" usercomment={element.text}/>
-                      );
-                    })}
-                  <Form onSubmit={(e) => this.addcomment(e, item, value)}>
-                    <Form.Group className="mb-3" controlId="formBasicPassword" >
-                      <Form.Control 
-                        as="textarea"
-                        rows={2}
-                        placeholder="Write a comment..."
-                        name="comment"
-                      />
-                    </Form.Group>
-                    <section class="container">
-                      <button class="btttn" type="submit" variant="primary" data-hover="Click!"><div>Post</div></button>
-                    </section>
-                  </Form>
+                    <Card.Title className="cardtitle">
+                      <FontAwesomeIcon icon={faUser} /> {value.name}
+                      <button className="closebutton"  title="Add Like"  onClick={(e) => this.addlike(e, item, value)}>
+                      ❤️
+                     {' '}{value.like} 
+                  </button>
+                    </Card.Title>
+                    <Card.Text>
+                      {" "}
+                      {console.log(value)}
+                      <Badge class="combad" variant="secondary">
+                        {value.title}
+                      </Badge>{" "}
+                      <Badge class="combad" variant="secondary">
+                        {value.description}
+                      </Badge>{" "}
+                    </Card.Text>
                   </Card.Body>
-                        </Accordion.Collapse>
+                  <Accordion>
+                    <Card>
+                      <Card.Header>
+                        <Accordion.Toggle
+                          className="view"
+                          as={Card.Header}
+                          eventKey="0"
+                          style={{cursor: "pointer"}}
+                        >
+                          <FontAwesomeIcon icon={faComment} /> View Comment{" "}
+                          <br /> <br />
+                        </Accordion.Toggle>
+                      </Card.Header>
+                      <Accordion.Collapse eventKey="0">
+                        <Card.Body>
+                          {value.comment.map((element, i) => {
+                            return (
+                              <Comments
+                                key={i}
+                                username={element.commenter}
+                                userimg={element.url}
+                                posttime="Today at 6:00PM"
+                                usercomment={element.text}
+                              />
+                            );
+                          })}
+                          <Form
+                            onSubmit={(e) => this.addcomment(e, item, value)}
+                          >
+                            <Form.Group
+                              className="mb-3"
+                              controlId="formBasicPassword"
+                            >
+                              <Form.Control
+                                as="textarea"
+                                rows={2}
+                                placeholder="Write a comment..."
+                                name="comment"
+                              />
+                            </Form.Group>
+                            <section class="container">
+                              <button
+                                class="btttn"
+                                type="submit"
+                                variant="primary"
+                                data-hover="Click!"
+                              >
+                                <div>Post</div>
+                              </button>
+                            </section>
+                          </Form>
+                        </Card.Body>
+                      </Accordion.Collapse>
                     </Card>
-                    </Accordion>
+                  </Accordion>
                 </Card>
               );
             });
@@ -111,4 +165,3 @@ export class CardPublishedData extends Component {
 }
 
 export default withAuth0(CardPublishedData);
-
