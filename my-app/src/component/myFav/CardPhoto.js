@@ -21,6 +21,7 @@ export class CardPhoto extends Component {
               </div>
               <div class="text-container">
                 <h4>{item.title}</h4>
+                
 
               </div>
 

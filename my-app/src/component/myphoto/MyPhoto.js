@@ -4,6 +4,7 @@ import { withAuth0 } from '@auth0/auth0-react';
 import Addphoto from "./Addphoto";
 import Carduserphoto from "./Carduserphoto";
 import "./myPhoto.css"
+import {  Form,Button, Modal } from "react-bootstrap";
 export class MyPhoto extends Component {
   constructor(props) {
     super(props);
@@ -131,9 +132,11 @@ export class MyPhoto extends Component {
   }
  
   render() {
+
     const {isAuthenticated,user }=this.props.auth0;
     return (
       <div>
+        
         <Addphoto getInfo={this.addphoto} />
         
       <div style={{zIndex:"-1"}}class="overlay">

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Button, Modal } from "react-bootstrap";
-
+import "./addphoto.css";
 export class Addphoto extends Component {
     constructor(props){
         super(props);
@@ -18,8 +18,9 @@ export class Addphoto extends Component {
         return (
 
             <div>
-                 <Button variant="primary" size="lg" onClick={this.closemodal} className="button1" active>Add Picture</Button>
-
+              
+                 <Button className="mb-9" variant="primary" size="lg" onClick={this.closemodal} >Add Picture</Button>
+                 
                  <Modal show={this.state.show} onHide={this.closemodal}>
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
@@ -28,18 +29,18 @@ export class Addphoto extends Component {
           </Modal.Header>
           <Modal.Body>
           <Form onSubmit={this.props.getInfo}>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Group  controlId="formBasicEmail">
                 <Form.Label>Photo Title</Form.Label>
                 <Form.Control type="text" placeholder="Enter Photo Title" name="title" required   />
                 <Form.Text className="text-muted">
                   Pleas add your Photo.
                 </Form.Text>
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Group  controlId="formBasicPassword">
                 <Form.Label>Description </Form.Label>
                 <Form.Control type="text" placeholder="Description" name="des"  />
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Group  controlId="formBasicPassword">
                 <Form.Label>Link For Photo </Form.Label>
                 <Form.Control type="text" placeholder="Photo Link" name="imgurl"  />
               </Form.Group>
