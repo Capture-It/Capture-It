@@ -88,10 +88,10 @@ export class CardPublishedData extends Component {
                     <Card.Text>
                       {" "}
                       {console.log(value)}
-                      <Badge class="combad" variant="secondary">
+                      <Badge classNmae="combad" variant="secondary">
                         {value.title}
                       </Badge>{" "}
-                      <Badge class="combad" variant="secondary">
+                      <Badge classname="combad" variant="secondary">
                         {value.description}
                       </Badge>{" "}
                     </Card.Text>
@@ -136,9 +136,9 @@ export class CardPublishedData extends Component {
                                 name="comment"
                               />
                             </Form.Group>
-                            <section class="container">
+                            <section className="container">
                               <button
-                                class="btttn"
+                                className="btttn"
                                 type="submit"
                                 variant="primary"
                                 data-hover="Click!"
