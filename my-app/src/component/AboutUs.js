@@ -15,7 +15,7 @@ class AboutUS extends React.Component {
             </h1>
             <p className='head' style ={{fontSize: '20px' , marginTop: '3%'}} >Capture-It is a website for talented Photographers, offering them a platform for sharing and storing photos with photographers</p>
                  <hr></hr>
-                 <h2>Our Team</h2>
+                 {/* <h2>Our Team</h2> */}
             <p className='head'></p>
             <div style={{display:"flex"}} className='cardsGroup'>
                 <Card style={{ width: '18rem' }} className='memberCard'>

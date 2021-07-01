@@ -79,7 +79,7 @@ export class MyPhoto extends Component {
       userPhoto: userPhotos.data,
     });
     this.componentDidMount();
-    console.log(url);
+    console.log('tessssssssst',url);
     const userPublishedPhotos = await axios.delete(
       `http://localhost:3010/deletePublishedphoto/${id}`,
       { params: { email: user,url:url } }

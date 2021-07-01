@@ -64,8 +64,8 @@ export class Carduserphoto extends Component {
             return (
               <>
               <div className="maindiv1">
-             
                 <img style={{ height: "493.067px", width: "500px", borderRadius: "5px", zIndex: "-1" }} src={item.url} alt='pic' ></img>
+             
                 <h4 className="title">{item.title}</h4>
                 {/* <p className="title1">{item.description}</p> */}
 
