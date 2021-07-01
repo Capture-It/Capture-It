@@ -16,14 +16,12 @@ export class Header extends Component {
 
       <div>
         <Navbar className="navbar" >
-          <Navbar.Brand href="#home">
+          {/* <Navbar.Brand href="#home">photographer</Navbar.Brand> */}
           {/* <img src='public/Logo_Captureit_bw.png' style={{}} /> */}
           {/* <Nav.Link href="/">Home</Nav.Link> */}
 
-           <img style={{  height:"85%" }}src={logo}></img>
-           </Navbar.Brand>
           <div className='navbar-container' >
-
+           <img style={{  height:"85%" }}src={logo} alt="pic"></img>
             <div className='nav-links'>
 
               <Link style={{ textDecoration: "none", color: '#fff' }} to="/">
