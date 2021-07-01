@@ -65,15 +65,15 @@ export class Carduserphoto extends Component {
               <>
               <div className="maindiv1">
              
-                <img style={{ height: "493.067px", width: "500px", borderRadius: "5px", zIndex: "-1" }} src={item.url} ></img>
+                <img style={{ height: "493.067px", width: "500px", borderRadius: "5px", zIndex: "-1" }} src={item.url} alt='pic' ></img>
                 <h4 className="title">{item.title}</h4>
                 {/* <p className="title1">{item.description}</p> */}
 
                 {/* <button class="btttn" variant="primary" onClick={()=>this.props.deletePhoto(idx)} data-hover="Delete!"><div>Delete</div></button> */}
               
-                <button class="btttn1"onClick={() => this.props.updatePhoto(idx,item)}><FontAwesomeIcon icon={faEdit} size="lg" /></button>
-                <button class="btttn2" onClick={()=>this.props.deletePhoto(idx,item.url)}><FontAwesomeIcon icon={faTrashAlt} size="lg"/></button>
-                <button class="btttn3" disabled={this.state.disable} onClick={()=>this.sendPublished(item)}><FontAwesomeIcon icon={faShareSquare} size="lg"/></button>
+                <button className="btttn1"onClick={() => this.props.updatePhoto(idx,item)}><FontAwesomeIcon icon={faEdit} size="lg" /></button>
+                <button className="btttn2" onClick={()=>this.props.deletePhoto(idx,item.url)}><FontAwesomeIcon icon={faTrashAlt} size="lg"/></button>
+                <button className="btttn3" disabled={this.state.disable} onClick={()=>this.sendPublished(item)}><FontAwesomeIcon icon={faShareSquare} size="lg"/></button>
                 </div>
              
             </>

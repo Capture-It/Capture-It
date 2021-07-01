@@ -147,7 +147,7 @@ console.log(item);
         
         <Addphoto getInfo={this.addphoto} />
         
-      <div style={{zIndex:"-1"}}class="overlay">
+      <div style={{zIndex:"-1"}}className="overlay">
         {isAuthenticated&&<h2 style={{marginTop:"15%", textAlign:"center"}} >Welcome {user.nickname}</h2> }
         </div>
         {/* <img src={user.picture} alt='t'/> */}

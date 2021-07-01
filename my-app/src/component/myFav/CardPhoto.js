@@ -6,7 +6,7 @@ export class CardPhoto extends Component {
     return (
       <div>
          
-      <div class="overlay">
+      <div className="overlay">
               <h2 style={{marginTop:"15%", textAlign:"center" }}>My Favouraite Photos</h2>
               
               </div>
@@ -18,7 +18,7 @@ export class CardPhoto extends Component {
               <div className="maindiv">
                 <img style={{ height: "493.067px", width: "500px", borderRadius: "5px", zIndex: "-1" }} src={item.url} alt="pic"></img>
                 <h4>{item.title}</h4>
-                <button class="btttn" variant="primary" onClick={()=>this.props.deletePhoto(idx)} data-hover="Delete!"><div>Delete</div></button>
+                <button className="btttn" variant="primary" onClick={()=>this.props.deletePhoto(idx)} data-hover="Delete!"><div>Delete</div></button>
               </div>
             </>
             );
